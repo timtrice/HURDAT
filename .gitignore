@@ -1,0 +1,6 @@
+inst/doc
+.RData
+.Rhistory
+.Rproj.user/
+Hurricanes.Rproj
+*.html

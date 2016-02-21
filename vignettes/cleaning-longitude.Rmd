@@ -1,0 +1,136 @@
+---
+title: "Cleaning Bad Longitude in HURDAT"
+author: "Tim Trice"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Cleaning Bad Longitude in HURDAT}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      fig.width = 7, 
+                      fig.height = 5)
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(Hurricanes)
+library(knitr)
+library(maps)
+library(readr)
+```
+
+There is a known issue in the raw file for the Atlantic basin where longitude values are incorrect. This file demonstrates cleaning that data and correcting the necessary data tables.
+
+We start by getting our raw datasets with `raw_hurdat()`.
+
+```{r}
+raw_hurdat()
+```
+
+I'll bind `atlantic` and `nencpac` for easier analysis.
+
+```{r}
+df <- bind_rows(nencpac, atlantic)
+```
+
+Clean latitude and longitude
+
+```{r}
+df$Latitude <- clean_lat(df$Latitude)
+df$Longitude <- clean_lon(df$Longitude)
+```
+
+```{r}
+summary(df$Longitude)
+```
+
+There is at least one value of -359.1&deg;W. We should not have any longitude values $\pm$ 180&deg; as our dataset only covers the Atlantic, north eastern and central Pacific; effectively the northwestern hemisphere. 
+
+To get a better idea of where our longitude values stand, we'll create a plot.
+
+```{r}
+world_map <- map_data("world")
+
+bp <- list(geom_polygon(data = world_map, aes(x = long, y = lat, group = group), 
+                 colour = "grey10", fill = "white"), 
+           geom_point(size = 0.5, colour = "red"))
+
+ggplot(df, aes(x = Longitude, y = Latitude)) + 
+    bp
+```
+
+Our latitude values seem fine - we're expecting and received only positive values.
+
+But we have some bad longitude values off to the left that's blowing the scale of our map. So, let's filter our data frame on this.
+
+```{r}
+tmp <- df %>% 
+ filter(Longitude < -180)
+```
+
+What storms are we dealing with here?
+
+```{r}
+unique(tmp$Key)
+```
+
+Our `Key` value is formatted like "AABBCCCC" where AA is a Basin identifier, BB is the number of the storm for the specific year and CCCC is the specific year. So, `AA == AL` is for Atlantic storms and is in our `atlantic` dataset.
+
+Is this error an issue with our `Hurricanes` library? What did our original data look like:
+
+```{r}
+tmp_atlantic <- filter(atlantic, Key == "AL051952")
+print(tmp_atlantic$Longitude)
+```
+
+So, we have two bad values at the end - "359.1W" and "358.4W". Let's verify this was in our original dataset. 
+
+```{r}
+raw_atlantic <- read_csv(
+    "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt", 
+    skip = 23823L, n_max = 2, col_names = FALSE)
+raw_atlantic
+```
+
+We notice in `X6` the bad values. So, this isn't the `Hurricanes` package erring when parsing the data; it's just bad data. But we also notice a pattern with the longitude values. Let's look at them again:
+
+```{r}
+print(tmp_atlantic$Longitude)
+```
+
+Our values are descending - the storm is moving eastward - until it gets to 0&deg; where they should start *increasing* from 0. In other words, our 359.1W value should actually be +0.9 (360 - 359.1) and 358.4 should be +1.6. 
+
+It's important to note when we run `clean_lat` and `clean_lon`, values in the northern and eastern hemisphere are positive while values in the southern and western hemisphere are negative. That our storms *originated* in the northwestern hemisphere means all of our latitude values should be positive and our longitude values should be negative. We already verified `Latitude` seems fine. 
+
+But now we see that we had storms that actually crossed hemispheres. So, now we know as far as `Longitude` is concerned that we should have both positive and negative values. 
+
+In our original plot of `Longitude` we saw we had two records less than -300&deg;. `clean_lat` takes `Latitude` values with the "W" hemisphere identifider and simply multiplies them by -1 making them negative, as they should be. 
+
+But, because our raw data contained "359.1W" and "358.4W", we got results of -359.1 and -358.4 - the two outliers on the left-side of our chart. 
+
+$$
+Lon = 
+\begin{cases}
+360 + Lon, & Lon < -180 \\
+Lon, & Lon
+\end{cases}
+$$
+
+So, by adding 360 to any `Longitude` value < -180, we get a positive `Longitude` value which corrects our two observations. 
+
+```{r}
+df$Longitude <- sapply(df$Longitude, function(x) { ifelse(x < -180, 360 + x, x)})
+```
+
+And now our plot again.
+
+```{r}
+ggplot(df, aes(x = Longitude, y = Latitude)) + 
+    bp
+```
+
+This is as expected and tells us our data at least *looks* good. We're done.
