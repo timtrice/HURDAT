@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/timtrice/Hurricanes.svg?branch=master)](https://travis-ci.org/timtrice/Hurricanes)
+
 # README
 
 ## Introduction
