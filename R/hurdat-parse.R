@@ -36,16 +36,8 @@
 #' @param basins a multidimensional list of basins each containing a boolean
 #'      on whether or not to load the data (TRUE or FALSE) and a url to the
 #'      dataset.
-#' @param basins["atlantic"][1] boolean TRUE to retrieve reformatted HURDAT
-#'      for Atlantic Basin
-#' @param basins["atlantic"][2] character url to the Atlantic HURDAT txt file
-#' @param basins["nepac"][1] boolean FALSE to retrieve reformatted HURDAT for
-#'      northeast Pacific Basin
-#' @param basins["nepac"][2] character url to the northeast Pacific HURDAT txt file
-#' @param basins["nencpac"][1] boolean TRUE to retrieve reformatted HURDAT for
-#'      north central Pacific Basin
-#' @param basins["nencpac"][2] character url to the north central Pacific HURDAT txt
-#'      file
+#'
+#' @import dplyr
 #'
 #' @return Returns a data frame for each basin, slightly restructured. An
 #'      effort is made to keep the data in it's original format as much as
