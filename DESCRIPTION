@@ -7,7 +7,9 @@ Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
 Depends:
     R (>= 3.2.3),
     dplyr (>= 0.4.3)
-Description: More about what it does (maybe more than one line)
+Description: Currently, Hurricanes access and parses NHC HURDAT datasets and
+    makes it easier to clean datasets for analysis. See the site for more
+    details.
 URL: http://www.timtrice.co/Hurricanes/
 BugReports: https://github.com/timtrice/Hurricanes/issues
 License: MIT + file LICENSE
