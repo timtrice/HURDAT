@@ -16,22 +16,6 @@ raw_hurdat(basins = list(atlantic = c(TRUE,
 \item{basins}{a multidimensional list of basins each containing a boolean
 on whether or not to load the data (TRUE or FALSE) and a url to the
 dataset.}
-
-\item{basins["atlantic"][1]}{boolean TRUE to retrieve reformatted HURDAT
-for Atlantic Basin}
-
-\item{basins["atlantic"][2]}{character url to the Atlantic HURDAT txt file}
-
-\item{basins["nepac"][1]}{boolean FALSE to retrieve reformatted HURDAT for
-northeast Pacific Basin}
-
-\item{basins["nepac"][2]}{character url to the northeast Pacific HURDAT txt file}
-
-\item{basins["nencpac"][1]}{boolean TRUE to retrieve reformatted HURDAT for
-north central Pacific Basin}
-
-\item{basins["nencpac"][2]}{character url to the north central Pacific HURDAT txt
-file}
 }
 \value{
 Returns a data frame for each basin, slightly restructured. An

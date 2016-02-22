@@ -25,11 +25,15 @@ The latitude/longitude values \emph{must} contain the hemisphere identifier
      \strong{all} values are returned.
 }
 \examples{
-# All values except the last Latitude or Longitude are returned as expected. The bad value in the last row generates the lat_problems and lon_problems data frames.
+# All values except the last Latitude or Longitude are returned as
+# expected. The bad value in the last row generates the lat_problems and
+# lon_problems data frames.
 x <- data.frame(
     ID = 1:11,
-    Latitude = c("1.0S", "5S", "10.S", "28.1S", "28.15S", "1.0N", "5N", "10.N", "28.1N", "28.15N", "1.0"),
-    Longitude = c("1.0E", "5E", "10.E", "28.1E", "128.15E", "1.0W", "5W", "10.W", "28.1W", "128.15W", "1.0"),
+    Latitude = c("1.0S", "5S", "10.S", "28.1S", "28.15S", "1.0N", "5N",
+                 "10.N", "28.1N", "28.15N", "1.0"),
+    Longitude = c("1.0E", "5E", "10.E", "28.1E", "128.15E", "1.0W", "5W",
+                 "10.W", "28.1W", "128.15W", "1.0"),
     stringsAsFactors = FALSE)
 x$Latitude <- clean_lat(x$Latitude)
 x$Longitude <- clean_lon(x$Longitude)
