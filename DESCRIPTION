@@ -15,12 +15,15 @@ BugReports: https://github.com/timtrice/Hurricanes/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    lubridate(>= 1.5.0),
+    lubridate (>= 1.5.0),
     readr (>= 0.2.2),
     tidyr (>= 0.4.1),
     zoo (>= 1.7-12-1)
 Suggests:
+    data.table,
+    ggplot2,
     knitr,
+    maps,
     testthat,
     rmarkdown
 RoxygenNote: 5.0.1
