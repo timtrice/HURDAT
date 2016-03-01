@@ -7,9 +7,9 @@
 \usage{
 raw_hurdat(basins = list(atlantic = c(TRUE,
   "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt"), nepac =
-  c(FALSE,
-  "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2014-021616.txt"),
-  nencpac = c(TRUE,
+  c(TRUE,
+  "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt"),
+  nencpac = c(FALSE,
   "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nencpac-1949-2014-092515.txt")))
 }
 \arguments{
