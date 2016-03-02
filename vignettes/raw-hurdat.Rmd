@@ -30,11 +30,11 @@ The first thing we notice are the warnings. As explained in the `?raw_hurdat` fi
 ls()
 ```
 
-You'll see we have four "objects" (our data frames): `atlantic`, `atlantic_problems`, `nencpac`, and `nencpac_problems`. The two problem datasets will show what problems were exhibited during parsing. As long as the `expected` value is *21 columns* and the `actual` variable is *4 columns*, we are okay. 
+You'll see we have four "objects" (our data frames): `atlantic`, `atlantic_problems`, `nepac`, and `nepac_problems`. The two problem datasets will show what problems were exhibited during parsing. As long as the `expected` value is *21 columns* and the `actual` variable is *4 columns*, we are okay. 
 
 ```{r}
 unique(atlantic_problems[, 3:4])
-unique(nencpac_problems[, 3:4])
+unique(nepac_problems[, 3:4])
 ```
 
 Let's take a look at the structure of our datasets. They both share the same structure so we'll only look at `atlantic`.
@@ -52,9 +52,9 @@ str(select(atlantic, Latitude, Longitude))
 ```
 
 ```{r}
-nencpac$Latitude <- clean_lat(nencpac$Latitude)
-nencpac$Longitude <- clean_lon(nencpac$Longitude)
-str(select(nencpac, Latitude, Longitude))
+nepac$Latitude <- clean_lat(nepac$Latitude)
+nepac$Longitude <- clean_lon(nepac$Longitude)
+str(select(nepac, Latitude, Longitude))
 ```
 
 `clean_lat` and `clean_lon` will generate problem tables if any of the values did not convert for some reason. Did we get any?
@@ -73,9 +73,9 @@ atlantic$YearNum <- as.integer(atlantic$YearNum)
 atlantic$Year <- as.integer(atlantic$Year)
 str(select(atlantic, YearNum, Year))
 
-nencpac$YearNum <- as.integer(nencpac$YearNum)
-nencpac$Year <- as.integer(nencpac$Year)
-str(select(nencpac, YearNum, Year))
+nepac$YearNum <- as.integer(nepac$YearNum)
+nepac$Year <- as.integer(nepac$Year)
+str(select(nepac, YearNum, Year))
 ```
 
 Optionally, we may choose to declare `Key`, `Basin`, `Year`, `Record` and `Status` as factors. This is a personal choice depending on what you are wanting to do. For the purposes of this vignette we'll leave it alone.

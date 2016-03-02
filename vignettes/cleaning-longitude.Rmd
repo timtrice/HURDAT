@@ -31,10 +31,10 @@ We start by getting our raw datasets with `raw_hurdat()`.
 raw_hurdat()
 ```
 
-I'll bind `atlantic` and `nencpac` for easier analysis.
+I'll bind `atlantic` and `nepac` for easier analysis.
 
 ```{r}
-df <- bind_rows(nencpac, atlantic)
+df <- bind_rows(nepac, atlantic)
 ```
 
 Clean latitude and longitude
