@@ -1,5 +1,5 @@
-#' Retrieve Raw HURDAT files for Atlantic, Northeast Pacific, North central
-#'      Pacific basins
+#' Retrieve Raw HURDAT files for Atlantic or the  Northeast Pacific and North
+#'      central Pacific basins
 #'
 #' Raw text files \emph{should} be found at
 #'      \url{http://www.nhc.noaa.gov/data/hurdat/} as of this writing. The
@@ -15,11 +15,10 @@
 #'      one for the Atlantic basin and one for both the north central and
 #'      north east Pacific basin. See Examples.
 #'
-#' You can choose to load only Atlantic, north east Pacific or north central
-#'      \emph{and} north east Pacific basin datasets. You cannot load north
-#'      central Pacific datasets alone as the text file has them merged.
-#'      You can, of course, subset the combined Pacific dataset by
-#'      \code{Basin == CP}, discarding the rest.
+#' You can choose to load only Atlantic or the north east Pacific and north
+#'      central \emph{and} north east Pacific basin datasets. You can subset
+#'      the combined Pacific dataset by \code{Basin == CP}, discarding the
+#'      rest.
 #'
 #' Problem warnings are to be expected. In the raw text files, the header
 #'      only contain four comma-delimited values where otherwise there are
@@ -56,8 +55,8 @@
 #' datasets <- list("atlantic" = c(TRUE, atlantic_url))
 #' raw_hurdat(datasets)
 #'
-#' # Load only northeast Pacific basin data
-#' nepac_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2014-021616.txt"
+#' # Load only Pacific basin data
+#' nepac_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt"
 #' datasets <- list("nepac" = c(TRUE, nepac_url))
 #' raw_hurdat(datasets)
 #'
@@ -65,14 +64,8 @@
 #' datasets <- list("atlantic" = c(TRUE, atlantic_url), "nepac" = c(TRUE, nepac_url))
 #' raw_hurdat(datasets)
 #'
-#' # Load only northeast and north central Pacific basin data
-#' nencpac_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nencpac-1949-2014-092515.txt"
-#' datasets <- list("nencpac" = c(TRUE, nencpac_url))
-#' raw_hurdat(datasets)
-#'
 #' # Default
 #' datasets <- list("atlantic" = c(TRUE, atlantic_url),
-#'                  "nepac" = c(FALSE, nepac_url),
 #'                  "nencpac" = c(TRUE, nencpac_url))
 #' raw_hurdat(datasets)
 #'
@@ -81,9 +74,7 @@
 raw_hurdat <- function(basins = list("atlantic" = c(TRUE,
                                                     "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt"),
                                      "nepac" = c(TRUE,
-                                                 "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt"),
-                                     "nencpac" = c(FALSE,
-                                                   "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nencpac-1949-2014-092515.txt"))) {
+                                                 "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt"))) {
 
     invisible(sapply(names(sapply(basins, names)), function(x){
         if(basins[[x]][1] == TRUE) {
