@@ -74,7 +74,7 @@ raw_hurdat(datasets)
 
 # Default
 datasets <- list("atlantic" = c(TRUE, atlantic_url),
-                 "nencpac" = c(TRUE, nencpac_url))
+                 "nepac" = c(TRUE, nepac_url))
 raw_hurdat(datasets)
 
 }
