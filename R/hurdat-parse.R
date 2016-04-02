@@ -89,7 +89,7 @@ raw_hurdat <- function(basins = list("atlantic" = c(TRUE,
 #' Receives from \code{\link{raw_hurdat}} a basin and url string. URL is
 #'      accessed and parsed into data frame.
 #'
-#' @param basin character name of basin, i.e., atlantic, nepac, nencpac
+#' @param basin character name of basin, i.e., atlantic, nepac
 #' @param url location of basin's HURDAT file
 #' @export
 #'
@@ -179,8 +179,7 @@ raw_hurdat <- function(basins = list("atlantic" = c(TRUE,
 .header_pattern <- function(basin) {
     switch(basin,
            "atlantic" = "^[AL]",
-           "nencpac" = "^[EP]|[CP]",
-           "nepac" = "^[EP]",
+           "nepac" = "^[EP]|[CP]",
            stop(sprintf("Unkown basin: %s", basin)))
 
 }
