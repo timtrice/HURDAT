@@ -10,7 +10,7 @@ ls()
 
 ## ------------------------------------------------------------------------
 unique(atlantic_problems[, 3:4])
-unique(nencpac_problems[, 3:4])
+unique(nepac_problems[, 3:4])
 
 ## ------------------------------------------------------------------------
 str(atlantic)
@@ -21,9 +21,9 @@ atlantic$Longitude <- clean_lon(atlantic$Longitude)
 str(select(atlantic, Latitude, Longitude))
 
 ## ------------------------------------------------------------------------
-nencpac$Latitude <- clean_lat(nencpac$Latitude)
-nencpac$Longitude <- clean_lon(nencpac$Longitude)
-str(select(nencpac, Latitude, Longitude))
+nepac$Latitude <- clean_lat(nepac$Latitude)
+nepac$Longitude <- clean_lon(nepac$Longitude)
+str(select(nepac, Latitude, Longitude))
 
 ## ------------------------------------------------------------------------
 if(exists("lat_problems")) str(lat_problems)
@@ -34,7 +34,7 @@ atlantic$YearNum <- as.integer(atlantic$YearNum)
 atlantic$Year <- as.integer(atlantic$Year)
 str(select(atlantic, YearNum, Year))
 
-nencpac$YearNum <- as.integer(nencpac$YearNum)
-nencpac$Year <- as.integer(nencpac$Year)
-str(select(nencpac, YearNum, Year))
+nepac$YearNum <- as.integer(nepac$YearNum)
+nepac$Year <- as.integer(nepac$Year)
+str(select(nepac, YearNum, Year))
 

@@ -15,7 +15,7 @@ library(readr)
 raw_hurdat()
 
 ## ------------------------------------------------------------------------
-df <- bind_rows(nencpac, atlantic)
+df <- bind_rows(nepac, atlantic)
 
 ## ------------------------------------------------------------------------
 df$Latitude <- clean_lat(df$Latitude)
