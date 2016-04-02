@@ -1,25 +1,6 @@
 # Have to figure out a way to ignore the problems() warning messages for other
 #       tests...
 
-#' # Load only Atlantic basin data
-#' atlantic_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt"
-#' datasets <- list("atlantic" = c(TRUE, atlantic_url))
-#' raw_hurdat(datasets)
-#'
-#' # Load only Pacific basin data
-#' nepac_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt"
-#' datasets <- list("nepac" = c(TRUE, nepac_url))
-#' raw_hurdat(datasets)
-#'
-#' # Load only Atlantic and northeast Pacific basin data
-#' datasets <- list("atlantic" = c(TRUE, atlantic_url), "nepac" = c(TRUE, nepac_url))
-#' raw_hurdat(datasets)
-#'
-#' # Default
-#' datasets <- list("atlantic" = c(TRUE, atlantic_url),
-#'                  "nencpac" = c(TRUE, nencpac_url))
-#' raw_hurdat(datasets)
-
 context("raw_hurdat()")
 
 # Load only Atlantic basin data
