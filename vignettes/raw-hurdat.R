@@ -1,5 +1,5 @@
 ## ----libraries, echo = FALSE, messages = FALSE---------------------------
-library(Hurricanes)
+library(HURDAT)
 library(tidyr)
 
 ## ------------------------------------------------------------------------

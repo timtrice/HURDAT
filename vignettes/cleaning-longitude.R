@@ -6,7 +6,7 @@ knitr::opts_chunk$set(echo = TRUE,
 library(data.table)
 library(dplyr)
 library(ggplot2)
-library(Hurricanes)
+library(HURDAT)
 library(knitr)
 library(maps)
 library(readr)
