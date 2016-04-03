@@ -1,7 +1,7 @@
-Package: Hurricanes
+Package: HURDAT
 Type: Package
-Title: Hurricanes
-Version: 0.0.0.9001
+Title: HURDAT
+Version: 0.0.1
 Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
     role = c("aut", "cre"))
 Depends:
@@ -10,8 +10,8 @@ Depends:
 Description: Currently, Hurricanes access and parses NHC HURDAT datasets and
     makes it easier to clean datasets for analysis. See the site for more
     details.
-URL: http://www.timtrice.co/Hurricanes/
-BugReports: https://github.com/timtrice/Hurricanes/issues
+URL: http://www.timtrice.co/HURDAT.html
+BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
