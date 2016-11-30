@@ -1,6 +1,8 @@
-#' Download, parse, clean and seperate HURDAT into multiple data frames
-#'
-hurdat_separate <- function() {
+#' @title .hurdat_separate
+#' @description Download, parse, clean and seperate HURDAT into multiple data
+#' frames
+#' @details Will update .rda files in data dir.
+.hurdat_separate <- function() {
 
     raw_hurdat()
 
@@ -43,28 +45,31 @@ hurdat_separate <- function() {
             filter(rowSums(tmp[13:24], na.rm = TRUE) > 0) %>%
             select(Key, Datetime, WindRadii34NE:WindRadii64NW)
 
-        assign(paste(x, "summary", sep = "_"), tmp_summary, envir = .GlobalEnv)
-        assign(paste(x, "details", sep = "_"), tmp_details, envir = .GlobalEnv)
-        assign(paste(x, "wind_radius", sep = "_"), tmp_wind, envir = .GlobalEnv)
+        assign(paste(x, "summary", sep = "_"), tmp_summary)
+        assign(paste(x, "details", sep = "_"), tmp_details)
+        assign(paste(x, "wind_radius", sep = "_"), tmp_wind)
 
         save(list=c(paste(x, "summary", sep = "_")),
              file=paste(paste("data",
                               paste(x, "summary", sep = "_"),
                               sep = "/"), "rda",
-                        sep = "."))
+                        sep = "."),
+             compress = 'xz')
 
         save(list=c(paste(x, "details", sep = "_")),
              file=paste(paste("data",
                               paste(x, "details", sep = "_"),
                               sep = "/"), "rda",
-                        sep = "."))
+                        sep = "."),
+             compress = 'xz')
 
         save(list=c(paste(x, "wind_radius", sep = "_")),
              file=paste(paste("data",
                               paste(x, "wind_radius", sep = "_"),
                               sep = "/"), "rda",
-                        sep = "."))
+                        sep = "."),
+             compress = 'xz')
 
     }))
-
+  return(TRUE)
 }
