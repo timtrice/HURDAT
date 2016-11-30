@@ -91,7 +91,7 @@ So, we have two bad values at the end - "359.1W" and "358.4W". Let's verify this
 
 ```{r}
 raw_atlantic <- read_csv(
-    "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt", 
+    al_hurdat2(), 
     skip = 23823L, n_max = 2, col_names = FALSE)
 raw_atlantic
 ```
