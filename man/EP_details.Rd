@@ -3,7 +3,7 @@
 \docType{data}
 \name{EP_details}
 \alias{EP_details}
-\title{Atlantic Details}
+\title{East Pacific Details}
 \format{A dataframe with eight variables.
 \describe{
      \item{\code{Key}}{Unique key identifying the tropical cyclone.

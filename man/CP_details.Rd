@@ -3,7 +3,7 @@
 \docType{data}
 \name{CP_details}
 \alias{CP_details}
-\title{Atlantic Details}
+\title{Central Pacific Details}
 \format{A dataframe with eight variables.
 \describe{
      \item{\code{Key}}{Unique key identifying the tropical cyclone.
