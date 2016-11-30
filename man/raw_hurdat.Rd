@@ -5,10 +5,8 @@
 \title{Retrieve Raw HURDAT files for Atlantic or the  Northeast Pacific and North
      central Pacific basins}
 \usage{
-raw_hurdat(basins = list(atlantic = c(TRUE,
-  "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt"), nepac =
-  c(TRUE,
-  "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt")))
+raw_hurdat(basins = list(atlantic = c(TRUE, al_hurdat2()), nepac = c(TRUE,
+  ep_hurdat2())))
 }
 \arguments{
 \item{basins}{a multidimensional list of basins each containing a boolean
@@ -59,22 +57,21 @@ Problem warnings are to be expected. In the raw text files, the header
 \examples{
 
 # Load only Atlantic basin data
-atlantic_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-021716.txt"
-datasets <- list("atlantic" = c(TRUE, atlantic_url))
+datasets <- list("atlantic" = c(TRUE, al_hurdat2()))
 raw_hurdat(datasets)
 
 # Load only Pacific basin data
-nepac_url = "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-022516.txt"
-datasets <- list("nepac" = c(TRUE, nepac_url))
+datasets <- list("nepac" = c(TRUE, ep_hurdat2()))
 raw_hurdat(datasets)
 
 # Load only Atlantic and northeast Pacific basin data
-datasets <- list("atlantic" = c(TRUE, atlantic_url), "nepac" = c(TRUE, nepac_url))
+datasets <- list("atlantic" = c(TRUE, al_hurdat2()),
+                 "nepac" = c(TRUE, ep_hurdat2()))
 raw_hurdat(datasets)
 
 # Default
-datasets <- list("atlantic" = c(TRUE, atlantic_url),
-                 "nepac" = c(TRUE, nepac_url))
+datasets <- list("atlantic" = c(TRUE, al_hurdat2()),
+                 "nepac" = c(TRUE, ep_hurdat2()))
 raw_hurdat(datasets)
 
 }
