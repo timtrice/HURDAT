@@ -148,7 +148,7 @@
 #'
 "EP_summary"
 
-#' Atlantic Details
+#' East Pacific Details
 #'
 #' Detailed observations for each storm.
 #'
@@ -273,7 +273,7 @@
 #'
 "CP_summary"
 
-#' Atlantic Details
+#' Central Pacific Details
 #'
 #' Detailed observations for each storm.
 #'
