@@ -1,3 +1,11 @@
+#' @title al_hurdat2
+#' @description URL for the Atlantic HURDAT2 file
+#' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
+al_hurdat2 <- function() {
+  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-070616.txt"
+  return(url)
+}
+
 #' Retrieve Raw HURDAT files for Atlantic or the  Northeast Pacific and North
 #'      central Pacific basins
 #'
