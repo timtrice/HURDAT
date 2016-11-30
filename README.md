@@ -1,4 +1,4 @@
-[![Travis-CI Build Status](https://travis-ci.org/timtrice/HURDAT.svg?branch=v0.0.1.1)](https://travis-ci.org/timtrice/HURDAT)
+[![Travis-CI Build Status](https://travis-ci.org/timtrice/HURDAT.svg?branch=master)](https://travis-ci.org/timtrice/HURDAT)
 
 # README
 
