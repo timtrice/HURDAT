@@ -7,11 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [v0.0.1.1] - yyyy-mm-dd
 
 ### Added
-  - NA
+  - `al_hurdat2()` Link to raw text files for Atlantic basin.
+  - `ep_hurdat2()` Link to raw text files for northeast and central Pacific basin.
+  - xz compression for data files.
 
 ### Changed
-  - NA
+  - URL to raw text files in documentation.
 
 ### Removed
-  - NA
-
+  - Vignettes in R extension.
