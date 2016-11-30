@@ -2,7 +2,9 @@
 
 export(.header_pattern)
 export(.hurdat_parse)
+export(al_hurdat2)
 export(clean_lat)
 export(clean_lon)
+export(ep_hurdat2)
 export(raw_hurdat)
 import(dplyr)
