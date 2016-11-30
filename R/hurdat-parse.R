@@ -1,6 +1,7 @@
 #' @title al_hurdat2
 #' @description URL for the Atlantic HURDAT2 file
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
+#' @export
 al_hurdat2 <- function() {
   url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-070616.txt"
   return(url)
@@ -9,6 +10,7 @@ al_hurdat2 <- function() {
 #' @title ep_hurdat2
 #' @description URL for the north east/central Pacific HURDAT2 file
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
+#' @export
 ep_hurdat2 <- function() {
   url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-050916.txt"
   return(url)
