@@ -12,8 +12,8 @@ al_hurdat2 <- function() {
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @export
 ep_hurdat2 <- function() {
-  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2016-041317.txt"
-  return(url)
+    url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2016-041317.txt"
+    return(url)
 }
 
 #' Retrieve Raw HURDAT files for Atlantic or the  Northeast Pacific and North
