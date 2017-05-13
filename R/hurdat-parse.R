@@ -3,8 +3,8 @@
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @export
 al_hurdat2 <- function() {
-  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2016-041117.txt"
-  return(url)
+    url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2016-041117.txt"
+    return(url)
 }
 
 #' @title ep_hurdat2
