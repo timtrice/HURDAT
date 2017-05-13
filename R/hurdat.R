@@ -153,10 +153,10 @@ parse_hurdat <- function(basin) {
         stop("Unexpected length differences raw and extracted data")
 
     # Remove all spaces; dataset is comma-delimited
-    df <- purrrlyr::dmap(.d = data,
-                      .f = stringr::str_replace_all,
-                      pattern = "[:blank:]",
-                      replacement = "")
+    df <- purrr::map_df(.x = data,
+                        .f = stringr::str_replace_all,
+                        pattern = "[:blank:]",
+                        replacement = "")
 
     # Expected length of headers
     m <- nrow(df[grep("^[[:upper:]]{2}", df$value),])
@@ -236,18 +236,21 @@ parse_hurdat <- function(basin) {
 
     # Make Lat, Lon numeric; positive if in NE hemisphere, else negative
     df <- tidyr::extract_(data = df,
-                                  col = "Lat",
-                                  into = c("Lat", "LatHemi"),
-                                  regex = "([[:digit:]\\.]+)([:upper:])") %>%
+                         col = "Lat",
+                         into = c("Lat", "LatHemi"),
+                         regex = "([[:digit:]\\.]+)([:upper:])") %>%
         tidyr::extract_(col = "Lon",
                         into = c("Lon", "LonHemi"),
-                        regex = "([[:digit:]\\.]+)([:upper:])") %>%
-        purrrlyr::dmap_at(.at = "Lat", as.numeric) %>%
-        purrrlyr::dmap_at(.at = "Lon", as.numeric) %>%
-        dplyr::mutate(Lat = ifelse(LatHemi == "N", Lat * 1, Lat * -1),
-                      Lon = ifelse(LonHemi == "E", Lon * 1, Lon * -1),
-                      LatHemi = NULL,
-                      LonHemi = NULL)
+                        regex = "([[:digit:]\\.]+)([:upper:])")
+
+    df$Lat <- as.numeric(df$Lat)
+    df$Lon <- as.numeric(df$Lon)
+
+    df <- dplyr::mutate(.data = df,
+                        Lat = ifelse(LatHemi == "N", Lat * 1, Lat * -1),
+                        Lon = ifelse(LonHemi == "E", Lon * 1, Lon * -1),
+                        LatHemi = NULL,
+                        LonHemi = NULL)
 
     if (!isTRUE(all.equal(dim(df), c(o, 21))))
         warning("Dataframe dimensions do not match expected")

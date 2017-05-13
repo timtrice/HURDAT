@@ -18,7 +18,6 @@ Imports:
     lubridate (>= 1.6.0),
     magrittr (>= 1.5),
     purrr (>= 0.2.2),
-    purrrlyr (>= 0.0.2),
     readr (>= 1.1.0),
     stringr (>= 1.2.0), 
     tibble (>= 1.2), 
