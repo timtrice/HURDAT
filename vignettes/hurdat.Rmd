@@ -1,0 +1,24 @@
+---
+title: "Raw HURDAT"
+author: "Tim Trice"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Raw HURDAT}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r libraries, echo = FALSE, messages = FALSE}
+library(HURDAT)
+```
+
+HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season's activity. These text files *will not* contain data on current tropical systems. 
+
+This vignette looks at obtaining those text reports. As of this writing, only the Atlantic basin text file has been updated to include 2015 cyclones. Please see `?raw_hurdat` for more details. 
+
+Here, we'll access the two datasets containing the three HURDAT basins - Atlantic, northeast Pacific and north central Pacific basins. 
+
+```{r, eval = FALSE}
+hurdat(basin = "AL")
+```
