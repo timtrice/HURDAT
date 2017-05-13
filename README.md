@@ -3,7 +3,7 @@
 
 ------------------------------------------------------------------------
 
-[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.3-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/HURDAT)](https://cran.r-project.org/package=HURDAT) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop-0.1.0)
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/HURDAT)](https://cran.r-project.org/package=HURDAT) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop-0.1.0)
 
 ------------------------------------------------------------------------
 
@@ -19,10 +19,10 @@ The Atlantic basin dataset covers all cyclones that have developed in the Atlant
 Getting Started
 ---------------
 
-Please view the vignette 'Raw HURDAT':
+Please view the vignette 'hurdat':
 
 ``` r
-vignette("raw-hurdat", package = "HURDAT")
+vignette("hurdat", package = "HURDAT")
 ```
 
 ### Prerequisites
@@ -44,7 +44,7 @@ devtools::install_github("timtrice/HURDAT")
 Built With
 ----------
 
--   [R 3.2.2](https://www.r-project.org/) - The R Project for Statistical Computing
+-   [R 3.4.0](https://www.r-project.org/) - The R Project for Statistical Computing
 
 Contributing
 ------------
