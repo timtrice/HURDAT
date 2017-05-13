@@ -1,4 +1,4 @@
-#' al
+#' Atlantic HURDAT
 #'
 #' HURDAT dataset for the Atlantic basin.
 #'
@@ -75,9 +75,9 @@
 #'          northwestern quadrant.}
 #' }
 #'
-"al"
+"AL"
 
-#' ep
+#' Eastern and Central Pacific HURDAT
 #'
 #' HURDAT dataset for the northeastern and central Pacific basin.
 #'
@@ -154,4 +154,4 @@
 #'          northwestern quadrant.}
 #' }
 #'
-"ep"
+"EP"

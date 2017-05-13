@@ -22,11 +22,11 @@ As of this vignette data up to and including 2016 has been added.
 There are two core datasets available: one for the Atlantic ("AL") basin (northern hemisphere) and Pacific basin (northwestern hemisphere). The Pacific basin is dividied into two sections: east Pacific and central Pacific. However, both sections are included in the "EP" dataset.
 
 ```{r}
-str(al)
+str(EP)
 ```
 
 ```{r}
-str(ep)
+str(AL)
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ str(ep)
 The datasets are extracted from online with the function `get_hurdat`. The `basin` parameter takes either "AL" for Atlantic or "EP" for northesatern and central Pacific.
 
 ```{r, eval = FALSE}
-al <- get_hurdat(basin = "AL")
+AL <- get_hurdat(basin = "AL")
 ```
 
 `get_basin` does not require `basin` be provided; by default it will access both datasets and return a dataframe approximately 80,000 x 21. 
