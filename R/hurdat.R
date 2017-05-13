@@ -153,7 +153,7 @@ parse_hurdat <- function(basin) {
         stop("Unexpected length differences raw and extracted data")
 
     # Remove all spaces; dataset is comma-delimited
-    df <- purrr::dmap(.d = data,
+    df <- purrrlyr::dmap(.d = data,
                       .f = stringr::str_replace_all,
                       pattern = "[:blank:]",
                       replacement = "")
@@ -242,8 +242,8 @@ parse_hurdat <- function(basin) {
         tidyr::extract_(col = "Lon",
                         into = c("Lon", "LonHemi"),
                         regex = "([[:digit:]\\.]+)([:upper:])") %>%
-        purrr::dmap_at(.at = "Lat", as.numeric) %>%
-        purrr::dmap_at(.at = "Lon", as.numeric) %>%
+        purrrlyr::dmap_at(.at = "Lat", as.numeric) %>%
+        purrrlyr::dmap_at(.at = "Lon", as.numeric) %>%
         dplyr::mutate(Lat = ifelse(LatHemi == "N", Lat * 1, Lat * -1),
                       Lon = ifelse(LonHemi == "E", Lon * 1, Lon * -1),
                       LatHemi = NULL,
