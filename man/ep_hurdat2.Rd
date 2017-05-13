@@ -12,4 +12,3 @@ ep_hurdat2()
 \description{
 URL for the north east/central Pacific HURDAT2 file
 }
-

@@ -1,4 +1,5 @@
-inst/doc
-.Rproj.user/
-*.html
+HURDAT.Rproj
+.RData
+.Rhistory
 .Rproj.user
+HURDAT.wiki/

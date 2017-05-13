@@ -80,4 +80,3 @@ Atlantic codebook: \url{http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlan
 
 NE/NC Pacific codebook: \url{http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
 }
-

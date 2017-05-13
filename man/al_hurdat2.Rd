@@ -12,4 +12,3 @@ al_hurdat2()
 \description{
 URL for the Atlantic HURDAT2 file
 }
-

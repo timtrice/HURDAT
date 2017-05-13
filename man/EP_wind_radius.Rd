@@ -48,4 +48,3 @@ Recorded wind radius data for each observation, where available. This
      means at least one of the wind radius variables have an integer value.
 }
 \keyword{datasets}
-

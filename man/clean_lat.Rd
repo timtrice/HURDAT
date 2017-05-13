@@ -39,4 +39,3 @@ x$Latitude <- clean_lat(x$Latitude)
 x$Longitude <- clean_lon(x$Longitude)
 
 }
-

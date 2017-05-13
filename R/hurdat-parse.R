@@ -3,7 +3,7 @@
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @export
 al_hurdat2 <- function() {
-  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2015-070616.txt"
+  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2016-041117.txt"
   return(url)
 }
 
@@ -12,7 +12,7 @@ al_hurdat2 <- function() {
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @export
 ep_hurdat2 <- function() {
-  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2015-050916.txt"
+  url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2016-041317.txt"
   return(url)
 }
 

@@ -28,4 +28,3 @@ EP_summary
 Summary information on each East Pacific cyclone.
 }
 \keyword{datasets}
-

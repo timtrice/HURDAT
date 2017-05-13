@@ -12,11 +12,11 @@ Encoding: UTF-8
 RnwWeave: knitr
 LaTeX: pdfLaTeX
 
-AutoAppendNewline: Yes
 StripTrailingWhitespace: Yes
 
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch --with-keep.source
-PackageBuildArgs: --no-build-vignettes --no-manual
+PackageBuildArgs: --no-build-vignettes
+PackageCheckArgs: --no-tests
 PackageRoxygenize: rd,collate,namespace,vignette

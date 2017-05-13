@@ -1,0 +1,83 @@
+---
+title: "Raw HURDAT"
+author: "Tim Trice"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Raw HURDAT}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r libraries, echo = FALSE, messages = FALSE}
+library(HURDAT)
+library(tidyr)
+```
+
+HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season's activity. These text files *will not* contain data on current tropical systems. 
+
+This vignette looks at obtaining those text reports. As of this writing, only the Atlantic basin text file has been updated to include 2015 cyclones. Please see `?raw_hurdat` for more details. 
+
+Here, we'll access the two datasets containing the three HURDAT basins - Atlantic, northeast Pacific and north central Pacific basins. 
+
+```{r}
+raw_hurdat()
+```
+
+The first thing we notice are the warnings. As explained in the `?raw_hurdat` file, this is expected due to the way the text files are constructed. 
+
+```{r}
+ls()
+```
+
+You'll see we have four "objects" (our data frames): `atlantic`, `atlantic_problems`, `nepac`, and `nepac_problems`. The two problem datasets will show what problems were exhibited during parsing. As long as the `expected` value is *21 columns* and the `actual` variable is *4 columns*, we are okay. 
+
+```{r}
+unique(atlantic_problems[, 3:4])
+unique(nepac_problems[, 3:4])
+```
+
+Let's take a look at the structure of our datasets. They both share the same structure so we'll only look at `atlantic`.
+
+```{r}
+str(atlantic)
+```
+
+The first thing we need to recognize is `Latitude` and `Longitude`. These should be numeric but they're character types. So, we use `clean_lat` and `clean_lon` get proper `Latitude` and `Longitude` values.
+
+```{r}
+atlantic$Latitude <- clean_lat(atlantic$Latitude)
+atlantic$Longitude <- clean_lon(atlantic$Longitude)
+str(select(atlantic, Latitude, Longitude))
+```
+
+```{r}
+nepac$Latitude <- clean_lat(nepac$Latitude)
+nepac$Longitude <- clean_lon(nepac$Longitude)
+str(select(nepac, Latitude, Longitude))
+```
+
+`clean_lat` and `clean_lon` will generate problem tables if any of the values did not convert for some reason. Did we get any?
+
+```{r}
+if(exists("lat_problems")) str(lat_problems)
+if(exists("lon_problems")) str(lon_problems)
+```
+
+Good deal! So we made our conversion with no known issues. 
+
+Regarding `YearNum` and `Year`, remember our 21/4 column issue a short time ago? The original text files have a header row on top of each storm subset. So, technically in the text file, the header row contained a text value and in the very next row for the same variable the value was an integer. So, when `raw_hurdat` runs `readr::read_csv`, we have to process it as a character to avoid type conversion and possibly losing data. This isn't a big deal. It just gives us a couple more steps.
+
+```{r}
+atlantic$YearNum <- as.integer(atlantic$YearNum)
+atlantic$Year <- as.integer(atlantic$Year)
+str(select(atlantic, YearNum, Year))
+
+nepac$YearNum <- as.integer(nepac$YearNum)
+nepac$Year <- as.integer(nepac$Year)
+str(select(nepac, YearNum, Year))
+```
+
+Optionally, we may choose to declare `Key`, `Basin`, `Year`, `Record` and `Status` as factors. This is a personal choice depending on what you are wanting to do. For the purposes of this vignette we'll leave it alone.
+
+

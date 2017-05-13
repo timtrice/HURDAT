@@ -28,4 +28,3 @@ CP_summary
 Summary information on each Central Pacific cyclone.
 }
 \keyword{datasets}
-

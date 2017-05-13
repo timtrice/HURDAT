@@ -29,4 +29,3 @@ AL_summary
 Summary information on each Atlantic cyclone.
 }
 \keyword{datasets}
-
