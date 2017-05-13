@@ -13,12 +13,37 @@ vignette: >
 library(HURDAT)
 ```
 
-HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season's activity. These text files *will not* contain data on current tropical systems. 
+## Introduction
 
-This vignette looks at obtaining those text reports. As of this writing, only the Atlantic basin text file has been updated to include 2015 cyclones. Please see `?raw_hurdat` for more details. 
+HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season's activity. These text files *will not* contain data on current tropical systems. For that I would recommend my [Hurricanes](https://github.com/timtrice/Hurricanes) package (not yet available in CRAN). 
 
-Here, we'll access the two datasets containing the three HURDAT basins - Atlantic, northeast Pacific and north central Pacific basins. 
+As of this vignette data up to and including 2016 has been added.
 
-```{r, eval = FALSE}
-hurdat(basin = "AL")
+There are two core datasets available: one for the Atlantic ("AL") basin (northern hemisphere) and Pacific basin (northwestern hemisphere). The Pacific basin is dividied into two sections: east Pacific and central Pacific. However, both sections are included in the "EP" dataset.
+
+## Usage
+
+So if we want to access the dataset for the Atlantic call `get_hurdat`:
+
+```{r}
+al <- get_hurdat(basin = "AL")
 ```
+
+```{r}
+str(al)
+```
+
+Most of the early storms will have missing data.
+
+The [Atlantic HURDAT codebook](http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf) contains the definitions of the various fields. A codebook also exists for the [northeast and central Pacific](http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-nencpac.pdf).
+
+`get_basin` does not require `basin` be provided; by default it will access both datasets and return a dataframe approximately 80,000 x 21. 
+
+There are significantly more storms for the Atlantic than in the eastern Pacific. There are only a few storms for the central Pacific. 
+
+## Warnings
+
+Perform QA on the dataset; particularly latitude and longitude. I have found some errors in previous datasets that do not appear to be resolved. They have been reported. Additionally, there may be some other bad data I'm not aware of.
+
+Regardless, if you find anything that is incorrect (either on my end or in the original dataset), please submit [an issue](https://github.com/timtrice/HURDAT/issues) and I will review it. 
+
