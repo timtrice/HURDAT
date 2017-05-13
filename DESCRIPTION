@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
     role = c("aut", "cre"))
 Depends:
-    R (>= 3.2.2)
+    R (>= 3.4.0)
 Description: Currently, Hurricanes access and parses NHC HURDAT datasets and
     makes it easier to clean datasets for analysis. See the site for more
     details.
@@ -14,14 +14,14 @@ BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    dplyr (>= 0.4.3), 
-    lubridate (>= 1.5.0),
+    dplyr (>= 0.5.0), 
+    lubridate (>= 1.6.0),
     magrittr (>= 1.5),
     purrr (>= 0.2.2),
-    readr (>= 0.2.2),
-    stringr (>= 1.1.0), 
+    readr (>= 1.1.0),
+    stringr (>= 1.2.0), 
     tibble (>= 1.2), 
-    tidyr (>= 0.4.1)
+    tidyr (>= 0.6.2)
 Suggests:
     devtools, 
     knitr,
