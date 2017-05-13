@@ -117,6 +117,9 @@ ep_hurdat2 <- function() {
 #' }
 #' @export
 get_hurdat <- function(basin = c("AL", "EP")) {
+
+    basin <- purrr::map_chr(basin, stringr::str_to_upper)
+
     if (!all(basin %in% c("AL", "EP")))
         stop("Basin must be AL for EP")
 
