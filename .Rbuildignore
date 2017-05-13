@@ -7,3 +7,4 @@
 ^packrat/
 ^\.Rprofile$
 ^\.data-raw/
+^cran-comments\.md$
