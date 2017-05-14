@@ -6,9 +6,10 @@ Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
     role = c("aut", "cre"))
 Depends:
     R (>= 3.4.0)
-Description: Currently, Hurricanes access and parses NHC HURDAT datasets and
-    makes it easier to clean datasets for analysis. See the site for more
-    details.
+Description: Scraped dataset of the Hurricane Research Division's Hurricane 
+    Re-Analysis Project known as HURDAT. Storm details are available for most 
+    known hurricanes and tropical storms for the Atlantic and northeastern 
+    Pacific ocean (northwestern hemisphere).
 URL: https://github.com/timtrice/HURDAT
 BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
