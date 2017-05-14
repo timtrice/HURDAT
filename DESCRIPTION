@@ -1,6 +1,6 @@
 Package: HURDAT
 Type: Package
-Title: HURDAT
+Title: Hurricane Re-Analysis Project
 Version: 0.1.0
 Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
     role = c("aut", "cre"))
