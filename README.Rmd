@@ -3,18 +3,18 @@ output: github_document
 ---
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://travis-ci.org/timtrice/HURDAT.svg?branch=develop-0.1.0)](https://travis-ci.org/timtrice/HURDAT)
-[![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/develop-0.1.0/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
+[![Build Status](https://travis-ci.org/timtrice/HURDAT.svg?branch=develop)](https://travis-ci.org/timtrice/HURDAT)
+[![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/develop/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
  
 ---
  
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-6666ff.svg)](https://cran.r-project.org/)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/HURDAT)](https://cran.r-project.org/package=HURDAT)
-[![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop-0.1.0)
+[![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop)
  
 ---
  
-[![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/develop-0.1.0)
+[![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/develop)
 
 
 ```{r, echo = FALSE}
@@ -45,7 +45,7 @@ vignette("hurdat", package = "HURDAT")
 
 The following R packages are also currently used for data processing:
 
-* dplyr (>= 0.4.3)
+* dplyr (>= 0.5.0)
 
 ### Installing
 
