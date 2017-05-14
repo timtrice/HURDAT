@@ -1,3 +1,13 @@
+## Resubmission
+
+This is a resubmission. In this version I have:
+
+* incorporated the MIT license and template per the link given (https://www.r-project.org/Licenses/MIT) along with using guidance from other approved packages. Modified the contents of LICENSE and added LICENSE.md
+
+* I have updated the package Title in DESCRIPTION 
+
+* Non-requested change: I modified the Description tag in DESCRIPTION.
+
 ## Test environments
 * local ubuntu 16.04 , R 3.4.0
 * ubuntu 12.04 (on travis-ci), R 3.4.0
