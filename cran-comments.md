@@ -8,6 +8,12 @@ This is a resubmission. In this version I have:
 
 * Non-requested change: I modified the Description tag in DESCRIPTION.
 
+* Changed roles in Description:
+  + Tim Trice is author as defined in ?persons
+  + Chris Landsea is author, creator and data contributer as defined in ?persons.
+
+* Added link to dataset project in DESCRIPTION Description.
+
 ## Test environments
 * local ubuntu 16.04 , R 3.4.0
 * ubuntu 12.04 (on travis-ci), R 3.4.0

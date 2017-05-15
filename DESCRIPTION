@@ -2,8 +2,10 @@ Package: HURDAT
 Type: Package
 Title: Hurricane Re-Analysis Project
 Version: 0.1.0
-Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
-    role = c("aut", "cre"))
+Authors@R: c(
+    person("Tim", "Trice", email = "tim.trice@gmail.com", role = "aut"), 
+    person("Chris", "Landsea", email = "Chris.Landsea@noaa.gov", 
+        role = c("aut", "cre", "dtc")))
 Depends:
     R (>= 3.4.0)
 Description: Scraped dataset of the Hurricane Research Division's Hurricane 
