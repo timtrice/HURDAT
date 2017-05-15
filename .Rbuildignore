@@ -8,3 +8,4 @@
 ^\.Rprofile$
 ^\.data-raw/
 ^cran-comments\.md$
+^LICENSE\.md$
