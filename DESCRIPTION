@@ -1,30 +1,35 @@
 Package: HURDAT
 Type: Package
-Title: HURDAT
-Version: 0.0.1.1
-Authors@R: person("Tim", "Trice", email = "tim.trice@gmail.com",
-    role = c("aut", "cre"))
+Title: Hurricane Re-Analysis Project
+Version: 0.1.0
+Authors@R: c(
+    person("Tim", "Trice", email = "tim.trice@gmail.com", role = "aut"), 
+    person("Chris", "Landsea", email = "Chris.Landsea@noaa.gov", 
+        role = c("aut", "cre", "dtc")))
 Depends:
-    R (>= 3.2.2),
-    dplyr (>= 0.4.3)
-Description: Currently, Hurricanes access and parses NHC HURDAT datasets and
-    makes it easier to clean datasets for analysis. See the site for more
-    details.
-URL: http://www.timtrice.co/HURDAT.html
+    R (>= 3.4.0)
+Description: Scraped dataset of the Hurricane Research Division's Hurricane 
+    Re-Analysis Project known as HURDAT. Storm details are available for most 
+    known hurricanes and tropical storms for the Atlantic and northeastern 
+    Pacific ocean (northwestern hemisphere). See http://www.aoml.noaa.gov/hrd/hurdat/Data_Storm.html 
+    for more information.
+URL: https://github.com/timtrice/HURDAT
 BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    lubridate (>= 1.5.0),
-    readr (>= 0.2.2),
-    tidyr (>= 0.4.1),
-    zoo (>= 1.7-12)
+    dplyr (>= 0.5.0), 
+    lubridate (>= 1.6.0),
+    magrittr (>= 1.5),
+    purrr (>= 0.2.2),
+    readr (>= 1.1.0),
+    stringr (>= 1.2.0), 
+    tibble (>= 1.2), 
+    tidyr (>= 0.6.2)
 Suggests:
-    data.table,
-    ggplot2,
+    devtools, 
     knitr,
-    maps,
     testthat,
     rmarkdown
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 VignetteBuilder: knitr

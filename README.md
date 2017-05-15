@@ -1,75 +1,74 @@
-[![Travis-CI Build Status](https://travis-ci.org/timtrice/HURDAT.svg?branch=master)](https://travis-ci.org/timtrice/HURDAT)
 
-# README
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://travis-ci.org/timtrice/HURDAT.svg?branch=develop)](https://travis-ci.org/timtrice/HURDAT) [![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/develop/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
 
-## Introduction
+------------------------------------------------------------------------
+
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/HURDAT)](https://cran.r-project.org/package=HURDAT) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop)
+
+------------------------------------------------------------------------
+
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--14-yellowgreen.svg)](/commits/develop)
+
+HURDAT
+======
 
 This R package currently aims to reorganize the NOAA HURDAT2 dataset for Atlantic, East Pacific and Central Pacific-basin tropical cyclones and present it in a cleaner format.
 
-The Atlantic basin dataset covers all cyclones that have developed in the Atlantic Ocean. The eastern Pacific datasets cover cyclones in the Pacifc from the United States/Mexico coastlines to -140&deg;W where the cyclone entered what is referred to as the central Pacific basin. The central Pacific basin extends westward to -180&deg;W.
+The Atlantic basin dataset covers all cyclones that have developed in the Atlantic Ocean. The eastern Pacific datasets cover cyclones in the Pacifc from the United States/Mexico coastlines to -140°W where the cyclone entered what is referred to as the central Pacific basin. The central Pacific basin extends westward to -180°W.
 
-There are some instances where a storm will cross basins (from the Atlantic to the Pacific or vice versa). Per the [National Oceanic and Atmospheric Administration](http://www.noaa.gov)'s [Hurricane Research Division](http://www.aoml.noaa.gov/hrd/) [FAQ](http://www.aoml.noaa.gov/hrd/tcfaq/tcfaqHED.html), [Subject B5](http://www.aoml.noaa.gov/hrd/tcfaq/B5.html):
+Getting Started
+---------------
 
-> The rule used to be that if the tropical storm or hurricane moved into a different basin, then it was renamed to whatever name was next on the list for the area.
+Please view the vignette 'hurdat':
 
-At this time, *used to be* is not clarified or unknown.
+``` r
+vignette("hurdat", package = "HURDAT")
+```
 
-### Named Cyclones
+### Prerequisites
 
-Cyclones were not named until 1950 and used names of the international phonetic alphabet. For example, Able, Baker, Charlie, etc.
+`HURDAT` does require an active internet connection as data is extracted from online archives.
 
-In 1953, the [National Hurricane Center (NHC)](http://www.nhc.noaa.gov) began using female names and by 1954 the NHC would retire some names for storms of significance. Currently the [World Meteorological Organization](http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html) is responsible for maintaining the list of names, retiring names and assigning replacement names.
+The following R packages are also currently used for data processing:
 
-In this dataset, cyclones not named are simply referred to as "UNNAMED". To aid with identification, cyclones will be referenced by their `Key`, a string of alphanumeric characters identifying basin, the number of the storm for the year, followed by the four-digit year.
+-   dplyr (&gt;= 0.4.3)
 
-For example, *AL011851*:
+### Installing
 
-* AL = Atlantic Basin (`Basin`)
+`HURDAT` is currently only available in GitHub. It can be installed using the `devtools` package:
 
-* 01 = First storm of the year (`YearNum`)
+``` r
+devtools::install_github("timtrice/HURDAT")
+```
 
-* 1851 = Year of the storm (`Year`)
+Built With
+----------
 
-### Meteorological Definitions
+-   [R 3.4.0](https://www.r-project.org/) - The R Project for Statistical Computing
 
-It is useful to understand definitions and classifications of tropical cyclones.
+Contributing
+------------
 
-- Cyclone: a system of winds rotating inward to an area of low pressure. This system rotates counter-clockwise in the northern hemisphere and clockwise in the southern hemisphere.
+Please read [CONTRIBUTING.md](https://gist.github.com/timtrice/f2a4c2a020c87669178dad27e73bfce1) for details on our code of conduct, and the process for submitting pull requests to us.
 
-- Tropical depression: a tropical cyclone with winds less than 35 mph (34 kts).
+Versioning
+----------
 
-- Tropical storm: a tropical  with winds between 35 mph (34 kts) but less than 74mph (64 kts).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/timtrice/HURDAT/tags).
 
-- Hurricane: a tropical cyclone with winds greater than 74 mph (64 kts).
+Authors
+-------
 
-- Extratropical Cyclone: a cyclone no longer containing tropical characteristics (warm-core center, tight pressure gradient near the center)
+-   **Tim Trice** - *Initial work* - [timtrice](https://github.com/timtrice)
 
-- Subtropical Cyclone: a cyclone containing a mix of tropical and non-tropical characteristics.
+See also the list of [contributors](https://github.com/timtrice/HURDAT/contributors) who participated in this project.
 
-- Tropical cyclone: a warm-core surface low pressure system
+License
+-------
 
-- Tropical Wave: An open area of low pressure (trough) containing tropical characteristics
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-- Disturbance: An area of disturbed weather; a large disorganized area of thunderstorms.
+Acknowledgments
+---------------
 
-### Saffir Simpson Hurricane Scale
-
-Cyclones are classified by their rating within the [Saffir-Simpson Hurricane Scale](https://en.wikipedia.org/wiki/Saffir%E2%80%93Simpson_hurricane_wind_scale) as follows:
-
-Category | Winds
--------- | ------
-TD       | 0-38 mph (0-33 kts)
-TS       | 39-73 mph (34-64 kts)
-1        | 74-95 mph (65-83 kts)
-2        | 96-110 mph (84-95 kts)
-3        | 111-129 mph (96-113 kts)
-4        | 130-156 mph (114-134 kts)
-5        | >156 mph (>134 kts)
-
-A "major hurricane" is that a category three or higher.
-
-## Error Reporting
-
-Please submit any errors, discrepancies or issues through the [github/hurricanes](https://github.com/timtrice/Hurricanes/issues) repository.
-
-Errors in the raw data may also be reported to Chris Landsea or the National Hurricane Center Best Track Change Committee [as explained on the HRD website](http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html).
+-   None yet :(
