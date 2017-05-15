@@ -9,7 +9,8 @@ Depends:
 Description: Scraped dataset of the Hurricane Research Division's Hurricane 
     Re-Analysis Project known as HURDAT. Storm details are available for most 
     known hurricanes and tropical storms for the Atlantic and northeastern 
-    Pacific ocean (northwestern hemisphere).
+    Pacific ocean (northwestern hemisphere). See http://www.aoml.noaa.gov/hrd/hurdat/Data_Storm.html 
+    for more information.
 URL: https://github.com/timtrice/HURDAT
 BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
