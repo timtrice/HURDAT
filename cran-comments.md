@@ -14,6 +14,8 @@ This is a resubmission. In this version I have:
 
 * Added link to dataset project in DESCRIPTION Description.
 
+* Corrected cre tag from Chris Landsea to Tim Trice; Landsea does not work directly on this package.
+
 ## Test environments
 * local ubuntu 16.04 , R 3.4.0
 * ubuntu 12.04 (on travis-ci), R 3.4.0
