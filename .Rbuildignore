@@ -9,3 +9,5 @@
 ^\.data-raw/
 ^cran-comments\.md$
 ^LICENSE\.md$
+^data/AL\.csv$
+^data/EP\.csv$
