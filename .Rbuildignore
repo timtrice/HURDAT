@@ -11,3 +11,4 @@
 ^LICENSE\.md$
 ^data/AL\.csv$
 ^data/EP\.csv$
+^docs$
