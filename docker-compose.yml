@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  hurdat:
+    build: .
+    ports:
+      - "8787:8787"
