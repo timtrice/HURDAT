@@ -1,14 +1,14 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
+^appveyor\.yml$
 ^data-raw$
 ^README\.Rmd$
 ^CHANGELOG\.md$
-^packrat/
 ^\.Rprofile$
 ^\.data-raw/
 ^cran-comments\.md$
 ^LICENSE\.md$
-^data/AL\.csv$
-^data/EP\.csv$
 ^docs$
+^HURDAT\.code-workspace$
+^_docker$

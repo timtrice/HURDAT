@@ -1,7 +1,13 @@
-version: '3'
+version: '3.4'
 
 services:
   hurdat:
-    build: .
+    image: timtrice/hurdat:3.4.4
+    container_name: hurdat
+    restart: "no"
+    volumes:
+      - ${HOST_RPROFILE}:/home/rstudio/.Rprofile
+      - ${HOST_RSTUDIO_SETTINGS}:/home/rstudio/.rstudio
+      - ${HOST_HURDAT}:/home/rstudio/HURDAT
     ports:
       - "8787:8787"
