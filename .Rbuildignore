@@ -11,4 +11,5 @@
 ^LICENSE\.md$
 ^docs$
 ^HURDAT\.code-workspace$
-^_docker$
+^Dockerfile$
+^docker-compose\.yml$
