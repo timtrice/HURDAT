@@ -88,7 +88,7 @@ al_hurdat2 <- function() {
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @keywords internal
 ep_hurdat2 <- function() {
-    url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2016-041317.txt"
+    url <- "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
     return(url)
 }
 
