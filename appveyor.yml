@@ -10,41 +10,33 @@ init:
 install:
   ps: Bootstrap
 
+cache:
+  - C:\RLibrary
+
 # Adapt as necessary starting from here
 
-#environment:
-#  global:
-#    WARNINGS_ARE_ERRORS: 1
+environment:
+  global:
+    WARNINGS_ARE_ERRORS: 1
 
   matrix:
-  - R_VERSION: oldrel
-    RTOOLS_VERSION: 340
-    CRAN: http://cran.rstudio.com
-
-  - R_VERSION: oldrel
-    RTOOLS_VERSION: 341
-    CRAN: http://cran.rstudio.com
-
-  - R_VERSION: oldrel
-    RTOOLS_VERSION: 342
-    CRAN: http://cran.rstudio.com
-
-  - R_VERSION: oldrel
-    RTOOLS_VERSION: 343
-    CRAN: http://cran.rstudio.com
-
   - R_VERSION: devel
     GCC_PATH: mingw_32
+
+  - R_VERSION: devel
+    R_ARCH: x64
+    GCC_PATH: mingw_64
+
+  - R_VERSION: release
+    R_ARCH: x64
 
   - R_VERSION: stable
 
   - R_VERSION: patched
 
-  - R_VERSION: release
-    R_ARCH: x64
-
-matrix:
-  fast_finish: true
+  - R_VERSION: oldrel
+    RTOOLS_VERSION: 34
+    CRAN: http://cran.rstudio.com
 
 build_script:
   - travis-tool.sh install_deps
