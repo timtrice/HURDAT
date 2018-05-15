@@ -17,6 +17,25 @@ install:
 #    WARNINGS_ARE_ERRORS: 1
 
   matrix:
+  - R_VERSION: oldrel
+    RTOOLS_VERSION: 340
+    CRAN: http://cran.rstudio.com
+
+  - R_VERSION: oldrel
+    RTOOLS_VERSION: 341
+    CRAN: http://cran.rstudio.com
+
+  - R_VERSION: oldrel
+    RTOOLS_VERSION: 342
+    CRAN: http://cran.rstudio.com
+
+  - R_VERSION: oldrel
+    RTOOLS_VERSION: 343
+    CRAN: http://cran.rstudio.com
+
+  - R_VERSION: devel
+    GCC_PATH: mingw_32
+
   - R_VERSION: stable
 
   - R_VERSION: patched
