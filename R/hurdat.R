@@ -79,7 +79,7 @@ stats::complete.cases
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @keywords internal
 al_hurdat2 <- function() {
-    url <- "https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2017-050118.txt"
+    url <- "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html"
     return(url)
 }
 
