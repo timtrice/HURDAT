@@ -252,8 +252,5 @@ parse_hurdat <- function(basin) {
                         LatHemi = NULL,
                         LonHemi = NULL)
 
-    if (!isTRUE(all.equal(dim(df), c(o, 21))))
-        warning("Dataframe dimensions do not match expected")
-
     return(df)
 }
