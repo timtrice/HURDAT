@@ -2,6 +2,20 @@ language: r
 
 warnings_are_errors: false
 
+dist: trusty
+
+os:
+  - linux
+  - osx
+
+r:
+  - 3.4.0
+  - 3.4.1
+  - 3.4.2
+  - 3.4.3
+  - release
+  - devel
+
 r_packages:
   - covr
 
@@ -13,3 +27,6 @@ cache: packages
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+  - test $TRAVIS_PULL_REQUEST == "false" &&
+    test $TRAVIS_BRANCH == "master" &&
+    bash deploy.sh
