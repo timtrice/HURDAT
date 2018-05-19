@@ -18,7 +18,14 @@ BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-  tidyverse (>= 1.2.1)
+    dplyr, 
+    lubridate,
+    magrittr,
+    purrr,
+    readr,
+    stringr, 
+    tibble, 
+    tidyr
 Suggests:
     devtools, 
     knitr,
