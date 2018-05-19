@@ -1,6 +1,6 @@
 language: r
 
-sudo: required
+sudo: false
 
 addons:
   apt:
@@ -11,26 +11,12 @@ warnings_are_errors: false
 
 dist: trusty
 
-os:
-  - linux
-  - osx
-
-r:
-  - 3.4.0
-  - 3.4.1
-  - 3.4.2
-  - 3.4.3
-  - release
-  - devel
-
-r_packages:
-  - covr
-
-r_check_args: --no-tests
-
-r_build_args: --no-build-vignettes
-
 cache: packages
+
+matrix:
+  include:
+  - r: release
+  - r: devel
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
