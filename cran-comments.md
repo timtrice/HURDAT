@@ -1,3 +1,26 @@
+## HURDAT v0.2.0
+================
+
+## Test environments
+
+### Local (Ubuntu 18.04)
+* R 3.4.4
+
+### Remote (Travis-CI Ubuntu 14.05)
+* R release
+* r devel
+
+### Remote (Appveyor i386-w64-mingw32/i386 (32-bit))
+* R-devel
+* R-release
+
+## R CMD check results
+
+There are no ERRORs or WARNINGs or NOTEs.
+
+## HURDAT v0.2.0
+================
+
 ## Resubmission
 
 This is a resubmission. In this version I have:
