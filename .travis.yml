@@ -1,6 +1,11 @@
 language: r
 
-sudo: false
+sudo: required
+
+addons:
+  apt:
+    packages:
+      - r-cran-rcpp
 
 warnings_are_errors: false
 
