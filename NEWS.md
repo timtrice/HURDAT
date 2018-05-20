@@ -1,3 +1,22 @@
+# HURDAT v0.2.0.9000 (yyyy-mm-dd)
+==========================
+
+## NEW FEATURES
+
+* NA
+
+## MINOR IMPROVEMENTS
+
+* NA
+
+## BUG FIXES
+
+* NA
+
+## DEPRECATED AND DEFUNCT
+
+* NA
+
 # HURDAT v0.2.0 (2018-05-20)
 ==========================
 
