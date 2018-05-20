@@ -1,4 +1,4 @@
-# HURDAT v0.2.0 (yyyy-mm-dd)
+# HURDAT v0.2.0 (2018-05-20)
 ==========================
 
 ## NEW FEATURES
