@@ -10,22 +10,20 @@ init:
 install:
   ps: Bootstrap
 
+cache:
+  - C:\RLibrary
+
 # Adapt as necessary starting from here
 
-#environment:
-#  global:
-#    WARNINGS_ARE_ERRORS: 1
-
+environment:
+  global:
+    WARNINGS_ARE_ERRORS: 1
   matrix:
-  - R_VERSION: stable
-
-  - R_VERSION: patched
-
-  - R_VERSION: release
-    R_ARCH: x64
-
-matrix:
-  fast_finish: true
+    - R_VERSION: release
+      R_ARCH: x64
+    - R_VERSION: devel
+      R_ARCH: x64
+      GCC_PATH: mingw_64
 
 build_script:
   - travis-tool.sh install_deps

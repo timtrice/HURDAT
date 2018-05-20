@@ -1,7 +1,7 @@
 Package: HURDAT
 Type: Package
 Title: Hurricane Re-Analysis Project
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("Tim", "Trice", email = "tim.trice@gmail.com", role = c("aut", "cre")), 
     person("Chris", "Landsea", email = "Chris.Landsea@noaa.gov", 
@@ -18,14 +18,14 @@ BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    dplyr (>= 0.5.0), 
-    lubridate (>= 1.6.0),
-    magrittr (>= 1.5),
-    purrr (>= 0.2.2),
-    readr (>= 1.1.0),
-    stringr (>= 1.2.0), 
-    tibble (>= 1.2), 
-    tidyr (>= 0.6.2)
+    dplyr, 
+    lubridate,
+    magrittr,
+    purrr,
+    readr,
+    stringr, 
+    tibble, 
+    tidyr
 Suggests:
     devtools, 
     knitr,

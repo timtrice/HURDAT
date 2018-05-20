@@ -1,4 +1,26 @@
-# HURDAT 0.1.0
+# HURDAT v0.2.0 (yyyy-mm-dd)
+==========================
+
+## NEW FEATURES
+
+* NA
+
+## MINOR IMPROVEMENTS
+
+* Updated `AL` dataset for 2017 Atlantic tropical cyclone data.
+
+* Updated `EP` dataset for 2017 northeast Pacific tropical cyclone data.
+
+## BUG FIXES
+
+* NA
+
+## DEPRECATED AND DEFUNCT
+
+* NA
+
+# HURDAT 0.1.0 (2017-08-10)
+===========================
 
 ## Major new features
 

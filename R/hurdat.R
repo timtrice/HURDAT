@@ -79,7 +79,7 @@ stats::complete.cases
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @keywords internal
 al_hurdat2 <- function() {
-    url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2016-041117.txt"
+    url <- "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html"
     return(url)
 }
 
@@ -88,7 +88,7 @@ al_hurdat2 <- function() {
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
 #' @keywords internal
 ep_hurdat2 <- function() {
-    url <- "http://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2016-041317.txt"
+    url <- "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
     return(url)
 }
 
@@ -251,9 +251,6 @@ parse_hurdat <- function(basin) {
                         Lon = ifelse(LonHemi == "E", Lon * 1, Lon * -1),
                         LatHemi = NULL,
                         LonHemi = NULL)
-
-    if (!isTRUE(all.equal(dim(df), c(o, 21))))
-        warning("Dataframe dimensions do not match expected")
 
     return(df)
 }

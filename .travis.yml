@@ -1,15 +1,20 @@
 language: r
-
+sudo: required
+addons:
+  apt:
+    packages:
+      - r-cran-rcpp
 warnings_are_errors: false
-
-r_packages:
-  - covr
-
-r_check_args: --no-tests
-
-r_build_args: --no-build-vignettes
-
+dist: trusty
 cache: packages
-
+latex: false
+r_build_args: --no-build-vignettes
+matrix:
+  include:
+  - r: release
+  - r: devel
 after_success:
   - Rscript -e 'library(covr); codecov()'
+  - test $TRAVIS_PULL_REQUEST == "false" &&
+    test $TRAVIS_BRANCH == "master" &&
+    bash deploy.sh
