@@ -13,3 +13,5 @@
 ^HURDAT\.code-workspace$
 ^Dockerfile$
 ^docker-compose\.yml$
+^doc$
+^Meta$
