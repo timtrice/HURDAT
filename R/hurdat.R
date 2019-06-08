@@ -146,7 +146,7 @@ parse_hurdat <- function(basin) {
     n <- length(readr::read_lines(file = url))
 
     # Import dataset
-    data <- readr::read_lines(file = url) %>% tibble::as_data_frame()
+    data <- readr::read_lines(file = url) %>% tibble::enframe(name = NULL)
 
     # If length of raw dataset and length of dataset import doesn't match; error
     if (n != nrow(data))

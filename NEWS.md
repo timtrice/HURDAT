@@ -7,7 +7,7 @@
 
 ## MINOR IMPROVEMENTS
 
-* NA
+* `AL` dataset updated for 2018 cyclones
 
 ## BUG FIXES
 
