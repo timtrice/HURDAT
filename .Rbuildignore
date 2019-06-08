@@ -5,13 +5,12 @@
 ^data-raw$
 ^README\.Rmd$
 ^CHANGELOG\.md$
-^\.Rprofile$
 ^\.data-raw/
 ^cran-comments\.md$
 ^LICENSE\.md$
 ^docs$
 ^HURDAT\.code-workspace$
-^Dockerfile$
+^docker$
 ^docker-compose\.yml$
 ^doc$
 ^Meta$
