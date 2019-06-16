@@ -1,4 +1,4 @@
-# HURDAT v0.2.0.9000 (yyyy-mm-dd)
+# HURDAT v0.2.1 (2019-06-16)
 ==========================
 
 ## NEW FEATURES
