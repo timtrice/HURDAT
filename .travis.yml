@@ -13,9 +13,13 @@ matrix:
   include:
   - r: oldrel
   - r: release
+    after_success: Rscript -e "covr::codecov()"
+    before_cache: Rscript -e "remotes::install_cran('pkgdown')"
+    deploy:
+      provider: script
+      script: Rscript -e "pkgdown::deploy_site_github(verbose = TRUE)"
+      skip_cleanup: true
+      on:
+        all_branches: true
+        condition: $TRAVIS_BRANCH =~ ^master|develop$
   - r: devel
-after_success:
-  - Rscript -e 'library(covr); codecov()'
-  - test $TRAVIS_PULL_REQUEST == "false" &&
-    test $TRAVIS_BRANCH == "master" &&
-    bash deploy.sh
