@@ -8,6 +8,7 @@ version](https://img.shields.io/badge/R%3E%3D-3.5.3-6666ff.svg)](https://cran.r-
 Status](https://img.shields.io/travis/timtrice/HURDAT/master.svg)](https://travis-ci.org/timtrice/HURDAT)
 [![AppVeyor Build
 Status](https://img.shields.io/appveyor/ci/timtrice/HURDAT/master.svg)](https://ci.appveyor.com/project/timtrice/HURDAT)
+[![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/master/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
 
 # HURDAT
 
