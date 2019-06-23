@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://hurdat.timtrice.net//index.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/AL.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/EP.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/HURDAT.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/al_hurdat2.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/ep_hurdat2.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/get_hurdat.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/parse_hurdat.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//reference/reexports.html</loc>
+  </url>
+  <url>
+    <loc>https://hurdat.timtrice.net//articles/hurdat.html</loc>
+  </url>
+</urlset>
