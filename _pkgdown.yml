@@ -1,0 +1,44 @@
+url: https://hurdat.timtrice.net/
+
+authors:
+  Tim Trice:
+    href: https://timtrice.net
+
+template:
+  params:
+    ganalytics: UA-1507390-28
+
+navbar:
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: index.html
+  - text: Raw HURDAT
+    href: articles/hurdat.html
+  - text: Reference
+    href: reference/index.html
+  - text: "News"
+    href: news/index.html
+  - text: "rrricanes"
+    href: https://ropensci.github.io/rrricanes/
+
+reference:
+  - title: About `HURDAT`
+    contents:
+    - HURDAT
+  - title: Datasets
+    desc: >
+      Gather current and archived storm data.
+    contents:
+    - AL
+    - EP
+  - title: Functions
+    desc: >
+      Scrape and parse the latest HURDAT dataset
+    contents:
+    - get_hurdat
+
+articles:
+  - title: Articles
+    contents:
+      - HURDAT
