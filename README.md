@@ -48,10 +48,8 @@ install.packages("HURDAT")
 
 ## Contributing
 
-Please read
-[CONTRIBUTING.md](https://gist.github.com/timtrice/f2a4c2a020c87669178dad27e73bfce1)
-for details on our code of conduct, and the process for submitting pull
-requests to us.
+Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) for details on
+our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
