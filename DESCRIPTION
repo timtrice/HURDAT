@@ -16,6 +16,7 @@ Description: Scraped dataset of the Hurricane Research Division's Hurricane
 URL: https://github.com/timtrice/HURDAT
 BugReports: https://github.com/timtrice/HURDAT/issues
 License: MIT + file LICENSE
+Language: en-us
 LazyData: TRUE
 Imports:
     dplyr, 
