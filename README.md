@@ -9,6 +9,9 @@ Status](https://img.shields.io/travis/timtrice/HURDAT/master.svg)](https://travi
 [![AppVeyor Build
 Status](https://img.shields.io/appveyor/ci/timtrice/HURDAT/master.svg)](https://ci.appveyor.com/project/timtrice/HURDAT)
 [![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/master/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
+[![Docker Build
+Status](https://img.shields.io/docker/build/timtrice/hurdat.svg)](https://cloud.docker.com/repository/docker/timtrice/hurdat)
+[![rstudio.cloud](https://img.shields.io/badge/launch-rstudio.cloud-yellowgreen.svg)](https://rstudio.cloud/project/407354)
 
 # HURDAT
 
