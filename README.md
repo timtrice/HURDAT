@@ -54,8 +54,7 @@ our code of conduct, and the process for submitting pull requests to us.
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions
-available, see the [tags on this
-repository](https://github.com/timtrice/HURDAT/tags).
+available, see the [tags on this repository](/tags).
 
 ## Authors
 
