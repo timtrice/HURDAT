@@ -1,3 +1,22 @@
+# HURDAT v0.2.2 (2019-07-10)
+==========================
+
+## NEW FEATURES
+
+* NA
+
+## MINOR IMPROVEMENTS
+
+* `EP` dataset updated for 2018 cyclones
+
+## BUG FIXES
+
+* NA
+
+## DEPRECATED AND DEFUNCT
+
+* NA
+
 # HURDAT v0.2.1 (2019-06-16)
 ==========================
 
