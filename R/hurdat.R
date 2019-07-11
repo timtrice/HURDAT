@@ -63,22 +63,15 @@
 #' @name HURDAT
 NULL
 
-#' @title al_hurdat2
-#' @description URL for the Atlantic HURDAT2 file
-#' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
-#' @keywords internal
-al_hurdat2 <- function() {
-  url <- "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html"
-  return(url)
-}
-
-#' @title ep_hurdat2
-#' @description URL for the north east/central Pacific HURDAT2 file
-#' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
-#' @keywords internal
-ep_hurdat2 <- function() {
-  url <- "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
-  return(url)
+.onLoad <- function(libname, pkgname) {
+  op <- options()
+  op.hurdat <- list(
+    hurdat.url.al = "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html",
+    hurdat.url.ep = "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
+  )
+  toset <- !(names(op.hurdat) %in% names(op))
+  if (any(toset)) options(op.hurdat[toset])
+  invisible()
 }
 
 #' @title get_hurdat
