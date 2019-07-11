@@ -36,7 +36,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">HURDAT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
       </span>
     </div>
 
@@ -83,7 +83,7 @@
       <h1>Raw HURDAT</h1>
                         <h4 class="author">Tim Trice</h4>
             
-            <h4 class="date">2019-07-10</h4>
+            <h4 class="date">2019-07-11</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/timtrice/HURDAT/blob/master/vignettes/hurdat.Rmd"><code>vignettes/hurdat.Rmd</code></a></small>
       <div class="hidden name"><code>hurdat.Rmd</code></div>
@@ -97,7 +97,7 @@
 <a href="#introduction" class="anchor"></a>Introduction</h2>
 <p>HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season’s activity. These text files <em>will not</em> contain data on current tropical systems. For that I would recommend my <a href="https://github.com/timtrice/Hurricanes">Hurricanes</a> package (not yet available in CRAN).</p>
 <p>As of this vignette data up to and including 2016 has been added.</p>
-<p>There are two core datasets available: one for the Atlantic (“AL”) basin (northern hemisphere) and Pacific basin (northwestern hemisphere). The Pacific basin is dividied into two sections: east Pacific and central Pacific. However, both sections are included in the “EP” dataset.</p>
+<p>There are two core datasets available: one for the Atlantic (“AL”) basin (northern hemisphere) and Pacific basin (northwestern hemisphere). The Pacific basin is divided into two sections: east Pacific and central Pacific. However, both sections are included in the “EP” dataset.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/str">str</a></span>(EP)</a></code></pre></div>
 <pre><code>## Classes 'tbl_df', 'tbl' and 'data.frame':    28547 obs. of  21 variables:
 ##  $ Key     : chr  "EP011949" "EP011949" "EP011949" "EP011949" ...
@@ -148,7 +148,7 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>The datasets are extracted from online with the function <code>get_hurdat</code>. The <code>basin</code> parameter takes either “AL” for Atlantic or “EP” for northesatern and central Pacific.</p>
+<p>The datasets are extracted from online with the function <code>get_hurdat</code>. The <code>basin</code> parameter takes either “AL” for Atlantic or “EP” for northeastern and central Pacific.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">AL &lt;-<span class="st"> </span><span class="kw"><a href="../reference/get_hurdat.html">get_hurdat</a></span>(<span class="dt">basin =</span> <span class="st">"AL"</span>)</a></code></pre></div>
 <p><code>get_basin</code> does not require <code>basin</code> be provided; by default it will access both datasets and return a dataframe approximately 80,000 x 21.</p>
 <p>Most of the early storms will have missing data.</p>
