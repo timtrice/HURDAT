@@ -63,14 +63,6 @@
 #' @name HURDAT
 NULL
 
-if (getRversion() >= "3.2.2") {
-  utils::globalVariables(c(
-    "Key", "Name", "Year", "Month", "Date", "Hour",
-    "Minute", "DateTime", "LatHemi", "Lat", "LonHemi",
-    "Lon"
-  ))
-}
-
 #' @importFrom magrittr %>%
 
 #' @importFrom stats complete.cases
