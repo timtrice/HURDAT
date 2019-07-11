@@ -63,12 +63,6 @@
 #' @name HURDAT
 NULL
 
-#' @importFrom magrittr %>%
-
-#' @importFrom stats complete.cases
-#' @export
-stats::complete.cases
-
 #' @title al_hurdat2
 #' @description URL for the Atlantic HURDAT2 file
 #' @source \url{http://www.nhc.noaa.gov/data/#hurdat}
