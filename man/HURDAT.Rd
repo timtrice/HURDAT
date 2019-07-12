@@ -26,7 +26,8 @@ phonetic alphabet. For example, Able, Baker, Charlie, etc.
 In 1953, the \href{http://www.nhc.noaa.gov}{National Hurricane Center} began
 using female names and by 1954 the NHC would retire some names for storms of
 significance. Currently the
-\href{http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html}{World Meteorological Organization}
+\href{http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html}{World
+  Meteorological Organization}
 is responsible for maintaining the list of names, retiring names and
 assigning replacement names.
 
@@ -49,15 +50,25 @@ For example, *AL011851*:
 It is useful to understand definitions and classifications of tropical
 cyclones.
 \itemize{
-  \item Cyclone: a system of winds rotating inward to an area of low pressure. This system rotates counter-clockwise in the northern hemisphere and clockwise in the southern hemisphere.
-  \item Tropical depression: a tropical cyclone with winds less than 35 mph (34 kts).
-  \item Tropical storm: a tropical  with winds between 35 mph (34 kts) but less than 74mph (64 kts).
-  \item Hurricane: a tropical cyclone with winds greater than 74 mph (64 kts).
-  \item Extratropical Cyclone: a cyclone no longer containing tropical characteristics (warm-core center, tight pressure gradient near the center)
-  \item Subtropical Cyclone: a cyclone containing a mix of tropical and non-tropical characteristics.
+  \item Cyclone: a system of winds rotating inward to an area of low
+    pressure. This system rotates counter-clockwise in the northern
+    hemisphere and clockwise in the southern hemisphere.
+  \item Tropical depression: a tropical cyclone with winds less than 35 mph
+    (34 kts).
+  \item Tropical storm: a tropical  with winds between 35 mph (34 kts) but
+    less than 74mph (64 kts).
+  \item Hurricane: a tropical cyclone with winds greater than 74 mph
+    (64 kts).
+  \item Extratropical Cyclone: a cyclone no longer containing tropical
+    characteristics (warm-core center, tight pressure gradient near the
+   center)
+  \item Subtropical Cyclone: a cyclone containing a mix of tropical and
+    non-tropical characteristics.
   \item Tropical cyclone: a warm-core surface low pressure system
-  \item Tropical Wave: An open area of low pressure (trough) containing tropical characteristics
-  \item Disturbance: An area of disturbed weather; a large disorganized area of thunderstorms.
+  \item Tropical Wave: An open area of low pressure (trough) containing
+    tropical characteristics
+  \item Disturbance: An area of disturbed weather; a large disorganized area
+    of thunderstorms.
 }
 }
 
@@ -69,6 +80,7 @@ Please submit any errors, discrepancies or issues through the
 
 Errors in the raw data may also be reported to Chris Landsea or the National
 Hurricane Center Best Track Change Committee
-\href{http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as explained on the HRD website}.
+\href{http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as
+  explained on the HRD website}.
 }
 

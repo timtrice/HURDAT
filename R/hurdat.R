@@ -18,7 +18,8 @@
 #' In 1953, the \href{http://www.nhc.noaa.gov}{National Hurricane Center} began
 #' using female names and by 1954 the NHC would retire some names for storms of
 #' significance. Currently the
-#' \href{http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html}{World Meteorological Organization}
+#' \href{http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html}{World
+#'   Meteorological Organization}
 #' is responsible for maintaining the list of names, retiring names and
 #' assigning replacement names.
 #'
@@ -39,15 +40,25 @@
 #' It is useful to understand definitions and classifications of tropical
 #' cyclones.
 #' \itemize{
-#'   \item Cyclone: a system of winds rotating inward to an area of low pressure. This system rotates counter-clockwise in the northern hemisphere and clockwise in the southern hemisphere.
-#'   \item Tropical depression: a tropical cyclone with winds less than 35 mph (34 kts).
-#'   \item Tropical storm: a tropical  with winds between 35 mph (34 kts) but less than 74mph (64 kts).
-#'   \item Hurricane: a tropical cyclone with winds greater than 74 mph (64 kts).
-#'   \item Extratropical Cyclone: a cyclone no longer containing tropical characteristics (warm-core center, tight pressure gradient near the center)
-#'   \item Subtropical Cyclone: a cyclone containing a mix of tropical and non-tropical characteristics.
+#'   \item Cyclone: a system of winds rotating inward to an area of low
+#'     pressure. This system rotates counter-clockwise in the northern
+#'     hemisphere and clockwise in the southern hemisphere.
+#'   \item Tropical depression: a tropical cyclone with winds less than 35 mph
+#'     (34 kts).
+#'   \item Tropical storm: a tropical  with winds between 35 mph (34 kts) but
+#'     less than 74mph (64 kts).
+#'   \item Hurricane: a tropical cyclone with winds greater than 74 mph
+#'     (64 kts).
+#'   \item Extratropical Cyclone: a cyclone no longer containing tropical
+#'     characteristics (warm-core center, tight pressure gradient near the
+#'    center)
+#'   \item Subtropical Cyclone: a cyclone containing a mix of tropical and
+#'     non-tropical characteristics.
 #'   \item Tropical cyclone: a warm-core surface low pressure system
-#'   \item Tropical Wave: An open area of low pressure (trough) containing tropical characteristics
-#'   \item Disturbance: An area of disturbed weather; a large disorganized area of thunderstorms.
+#'   \item Tropical Wave: An open area of low pressure (trough) containing
+#'     tropical characteristics
+#'   \item Disturbance: An area of disturbed weather; a large disorganized area
+#'     of thunderstorms.
 #' }
 #'
 #' @section Error Reporting:
@@ -57,11 +68,14 @@
 #'
 #' Errors in the raw data may also be reported to Chris Landsea or the National
 #' Hurricane Center Best Track Change Committee
-#' \href{http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as explained on the HRD website}.
+#' \href{http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as
+#'   explained on the HRD website}.
 #'
 #' @docType package
 #' @name HURDAT
 NULL
+
+#' @importFrom rlang .data
 
 .onLoad <- function(libname, pkgname) {
   op <- options()
@@ -99,171 +113,163 @@ NULL
 #' }
 #' @export
 get_hurdat <- function(basin = c("AL", "EP")) {
-  basin <- purrr::map_chr(basin, stringr::str_to_upper)
+
+  basin <- toupper(basin)
 
   if (!all(basin %in% c("AL", "EP"))) {
-    stop("Basin must be AL for EP")
+    rlang::abort(message = "`basin` must be 'AL' and/or 'EP'.")
   }
 
-  df <- purrr::map_df(.x = basin, .f = parse_hurdat)
-
-  return(df)
-}
-
-#' @title parse_hurdat
-#' @description Parse raw HURDAT files.
-#' @param basin character name of basin; c("AL", "EP")
-#' @keywords internal
-parse_hurdat <- function(basin) {
-  if (!all(basin %in% c("AL", "EP"))) {
-    stop("Basin must be AL for EP")
-  }
-
-  url <- do.call(
-    what = paste(tolower(basin),
-      "hurdat2",
-      sep = "_"
-    ),
-    args = list()
+  # Get URLs for `basin`
+  urls <- unlist(
+    options()[paste0("hurdat.url.", tolower(basin))],
+    use.names = FALSE
   )
 
-  # Expected rows of dataframe:
-  n <- length(readr::read_lines(file = url))
+  html <- purrr::map(.x = urls, .f = xml2::read_html)
 
-  # Import dataset
-  data <- readr::read_lines(file = url) %>% tibble::enframe(name = NULL)
+  txt <- purrr::map(.x = html, .f = rvest::html_nodes, xpath = "//pre")
 
-  # If length of raw dataset and length of dataset import doesn't match; error
-  if (n != nrow(data)) {
-    stop("Unexpected length differences raw and extracted data")
+  any_missing <- which(!lengths(txt))
+
+  txt <- purrr::map(.x = txt, .f = rvest::html_text)
+
+  if (length(any_missing) > 0) {
+
+    txt[any_missing] <- purrr::map(
+      .x = html[any_missing],
+      .f = rvest::html_text
+    )
+
   }
 
-  # Remove all spaces; dataset is comma-delimited
-  df <- purrr::map_df(
-    .x = data,
-    .f = stringr::str_replace_all,
-    pattern = "[:blank:]",
-    replacement = ""
-  )
+  txt <- purrr::map(txt, strsplit, split = "\n")
 
-  # Expected length of headers
-  m <- nrow(df[grep("^[[:upper:]]{2}", df$value), ])
-  # Expected nrow of final dataset
-  o <- n - m
+  txt <- as.vector(unlist(txt, use.names = FALSE))
 
-  # Split storm headers into variables
-  pattern <- "([:alnum:]{8}),([[:upper:]-]+),([:digit:]+),"
-  df <- tidyr::extract_(
-    data = df,
-    col = "value",
+  hurdat <- as.data.frame(txt)
+
+  # Identify headers containing sotrm key, name, and line count
+  headers <- grep(pattern = "^[[:alpha:]]{2}[[:digit:]]{6}.+", hurdat$txt)
+
+  # Split headers into variables
+  hurdat <- tidyr::extract(
+    data = hurdat,
+    col = "txt",
     into = c("Key", "Name", "Lines"),
-    regex = pattern,
+    regex = paste0(
+      "([:alpha:]{2}[:digit:]{6}),\\s+", # Key
+      "([[:upper:]-]+),\\s+",      # Name
+      "([:digit:]+),"          # Number of lines that follow
+    ),
     remove = FALSE,
     convert = TRUE
   )
 
+  # Fill headers down
+  hurdat <- tidyr::fill(data = hurdat, .data$Key, .data$Name, .data$Lines)
+
   # Split storm details into variables
-  df <- tidyr::separate_(
-    data = df,
-    col = "value",
+  hurdat <- tidyr::extract(
+    data = hurdat,
+    col = "txt",
     into = c(
-      "Date", "Time", "Record", "Status", "Lat",
-      "Lon", "Wind", "Pressure", "NE34", "SE34",
-      "SW34", "NW34", "NE50", "SE50", "SW50",
-      "NW50", "NE64", "SE64", "SW64", "NW64", "D"
+      "Year",
+      "Month",
+      "Date",
+      "Hour",
+      "Minute",
+      "Record",
+      "Status",
+      "Lat",
+      "LatHemi",
+      "Lon",
+      "LonHemi",
+      "Wind",
+      "Pressure",
+      "NE34",
+      "SE34",
+      "SW34",
+      "NW34",
+      "NE50",
+      "SE50",
+      "SW50",
+      "NW50",
+      "NE64",
+      "SE64",
+      "SW64",
+      "NW64"
     ),
-    sep = ",",
+    regex = paste0(
+      "^([:digit:]{4})", # Year
+      "([:digit:]{2})", # Month
+      "([:digit:]{2}),\\s+", # Date
+      "([:digit:]{2})", # Hour
+      "([:digit:]{2}),\\s+", # Minute
+      "([:alpha:]*),\\s+", # Record
+      "([:alpha:]{2}),\\s+", # Status
+      "([:digit:]{1,2}\\.[:digit:]{1})", # Latitude
+      "([:alpha:]{1}),\\s+", # Hemisphere
+      "([:digit:]{1,3}\\.[:digit:]{1})", # Longitude
+      "([:alpha:]{1}),\\s+", # Hemisphere
+      "([[:digit:]-]+),\\s+", # Wind
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+),\\s+", #
+      "([[:digit:]-]+).*" #
+    ),
     remove = FALSE,
-    convert = TRUE,
-    extra = "merge",
-    fill = "right"
+    convert = TRUE
   )
 
-  # Drop "value"
-  df$value <- NULL
-  # Drop "Lines"
-  df$Lines <- NULL
-  # Drop "D"; this field only exists cause all lines in raw data end w/ comma
-  df$D <- NULL
-
-  # Bring Key, Name to left
-  df <- dplyr::select(df, Key, Name, dplyr::everything())
-
-  # Fill Key, Name
-  df <- tidyr::fill_(
-    data = df,
-    fill_cols = c("Key", "Name"),
-    .direction = "down"
+  hurdat <- dplyr::mutate(
+    .data = hurdat,
+    Lat = dplyr::if_else(
+      .data$LatHemi == "N", .data$Lat * 1, .data$Lat * -1
+    ),
+    Lon = dplyr::if_else(
+      .data$LonHemi == "E", .data$Lon * 1, .data$Lon * -1
+    )
   )
 
-  # Complete cases between Lat:NE64
-  df <- df[complete.cases(
-    df$Lat, df$Lon, df$Wind, df$Pressure,
-    df$NE34, df$SE34, df$SW34, df$NW34,
-    df$NE50, df$SE50, df$SW50, df$NW50,
-    df$NE64, df$SE64, df$SW64, df$NW64
-  ), ]
+  # Remove original header rows
+  hurdat <- hurdat[-headers,]
+
+  hurdat$DateTime <- paste(
+    paste(hurdat$Year, hurdat$Month, hurdat$Date, sep = "-"),
+    paste(hurdat$Hour, hurdat$Minute, "00", sep = ":"),
+    sep = " "
+  )
+
+  hurdat <- dplyr::select(
+    .data = hurdat,
+    .data$Key, .data$Name, .data$DateTime, .data$Record:.data$Lat,
+    .data$Lon, .data$Wind:.data$NW64
+  )
 
   # Make certain values NA
-  df[df == ""] <- NA
-  df[df == "-99"] <- NA
-  df[df == "-999"] <- NA
+  # I do this before converting `DateTime` because if that field has already
+  # been converted then this cleaning will generate an error,
+  # >  character string is not in a standard unambiguous format
+  hurdat[hurdat == ""] <- NA
+  hurdat[hurdat == "0"] <- NA
+  hurdat[hurdat == -99] <- NA_integer_
+  hurdat[hurdat == -999] <- NA_integer_
 
-  # Add DateTime var
-  df <- tidyr::extract_(
-    data = df,
-    col = "Date",
-    into = c("Year", "Month", "Date"),
-    regex = "([:digit:]{4})([:digit:]{2})([:digit:]{2})"
-  ) %>%
-    tidyr::extract_(
-      col = "Time",
-      into = c("Hour", "Minute"),
-      regex = "([:digit:]{2})([:digit:]{2})"
-    ) %>%
-    dplyr::mutate(
-      DateTime = lubridate::ymd_hm(paste(paste(Year,
-        Month,
-        Date,
-        sep = "-"
-      ),
-      paste(Hour,
-        Minute,
-        sep = ":"
-      ),
-      sep = " "
-      )),
-      Year = NULL,
-      Month = NULL,
-      Date = NULL,
-      Hour = NULL,
-      Minute = NULL
-    ) %>%
-    dplyr::select(Key, Name, DateTime, dplyr::everything())
-
-  # Make Lat, Lon numeric; positive if in NE hemisphere, else negative
-  df <- tidyr::extract_(
-    data = df,
-    col = "Lat",
-    into = c("Lat", "LatHemi"),
-    regex = "([[:digit:]\\.]+)([:upper:])"
-  ) %>%
-    tidyr::extract_(
-      col = "Lon",
-      into = c("Lon", "LonHemi"),
-      regex = "([[:digit:]\\.]+)([:upper:])"
-    )
-
-  df$Lat <- as.numeric(df$Lat)
-  df$Lon <- as.numeric(df$Lon)
-
-  df <- dplyr::mutate(
-    .data = df,
-    Lat = ifelse(LatHemi == "N", Lat * 1, Lat * -1),
-    Lon = ifelse(LonHemi == "E", Lon * 1, Lon * -1),
-    LatHemi = NULL,
-    LonHemi = NULL
+  hurdat$DateTime <- as.POSIXct(
+    strptime(hurdat$DateTime, format = "%Y-%m-%d %H:%M:%S")
   )
 
-  return(df)
+  hurdat <- dplyr::arrange(hurdat, .data$DateTime, .data$Key)
+
+  return(hurdat)
 }

@@ -20,13 +20,11 @@ Language: en-us
 LazyData: TRUE
 Imports:
     dplyr, 
-    lubridate,
-    magrittr,
     purrr,
-    readr,
-    stringr, 
-    tibble, 
-    tidyr
+    rlang, 
+    rvest, 
+    tidyr, 
+    xml2
 Suggests:
     covr, 
     devtools, 
