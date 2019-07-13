@@ -159,7 +159,7 @@ get_hurdat <- function(basin = c("AL", "EP")) {
     into = c("Key", "Name", "Lines"),
     regex = paste0(
       "([:alpha:]{2}[:digit:]{6}),\\s+", # Key
-      "([[:upper:]-]+),\\s+",      # Name
+      "([[:upper:][:digit:]-]+)\\s*,\\s+",      # Name
       "([:digit:]+),"          # Number of lines that follow
     ),
     remove = FALSE,
