@@ -11,7 +11,7 @@ Status](https://img.shields.io/appveyor/ci/timtrice/HURDAT/master.svg)](https://
 [![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/master/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
 [![Docker Build
 Status](https://img.shields.io/docker/build/timtrice/hurdat.svg)](https://cloud.docker.com/repository/docker/timtrice/hurdat)
-[![rstudio.cloud](https://img.shields.io/badge/launch-rstudio.cloud-yellowgreen.svg)](https://rstudio.cloud/project/407354)
+[![rstudio.cloud](https://img.shields.io/badge/launch-rstudio.cloud-yellowgreen.svg)](https://rstudio.cloud/project/410741)
 
 # HURDAT
 
@@ -48,13 +48,16 @@ install.packages("HURDAT")
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) for details on
-our code of conduct, and the process for submitting pull requests to us.
+Please read
+[CONTRIBUTING.md](https://github.com/timtrice/HURDAT/blob/master/.github/CONTRIBUTING.md)
+for details on our code of conduct, and the process for submitting pull
+requests to us.
 
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions
-available, see the [tags on this repository](/tags).
+available, see the [tags on this
+repository](https://github.com/timtrice/HURDAT/tags).
 
 ## Authors
 
@@ -68,7 +71,8 @@ participated in this project.
 ## License
 
 This project is licensed under the MIT License - see the
-[LICENSE](LICENSE) file for details
+[LICENSE](https://github.com/timtrice/HURDAT/blob/master/LICENSE.md)
+file for details
 
 ## Acknowledgments
 
