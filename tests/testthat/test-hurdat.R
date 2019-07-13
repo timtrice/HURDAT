@@ -4,10 +4,6 @@ context("HURDAT")
 df.al <- get_hurdat(basin = "AL")
 df.ep <- get_hurdat(basin = "EP")
 
-## ---- Saved Data -------------------------------------------------------------
-load(system.file("extdata", "al.Rda", package = "HURDAT"))
-load(system.file("extdata", "ep.Rda", package = "HURDAT"))
-
 ## ---- Dataframe Comparison ---------------------------------------------------
 test_that("Dataframe Comparison", {
   expect_identical(AL, df.al)
