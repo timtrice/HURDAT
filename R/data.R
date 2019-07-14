@@ -34,7 +34,7 @@
 #'              \item{\code{EX}}{Extratropical cyclone of any intensity}
 #'              \item{\code{SD}}{Subtropical cyclone of subtropical depression
 #'                  intensity (winds < 34 kts).}
-#'              \item{\code{SS}}{Subtroipcal cyclone of subtropical cyclone
+#'              \item{\code{SS}}{Subtropical cyclone of subtropical cyclone
 #'                  intensity (winds >= 34 kts)}
 #'              \item{\code{LO}}{A low that is neither a tropical cyclone,
 #'                  subtropical cyclone nor extratropical of any intensity.}
@@ -113,7 +113,7 @@
 #'              \item{\code{EX}}{Extratropical cyclone of any intensity}
 #'              \item{\code{SD}}{Subtropical cyclone of subtropical depression
 #'                  intensity (winds < 34 kts).}
-#'              \item{\code{SS}}{Subtroipcal cyclone of subtropical cyclone
+#'              \item{\code{SS}}{Subtropical cyclone of subtropical cyclone
 #'                  intensity (winds >= 34 kts)}
 #'              \item{\code{LO}}{A low that is neither a tropical cyclone,
 #'                  subtropical cyclone nor extratropical of any intensity.}
