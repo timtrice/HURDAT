@@ -29,8 +29,6 @@ The Atlantic basin dataset covers all cyclones that have developed in the Atlant
 
 ## Getting Started
 
-Please view the vignette 'hurdat':
-
 ```r
 vignette("hurdat", package = "HURDAT")
 ```

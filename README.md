@@ -27,8 +27,6 @@ central Pacific basin extends westward to -180°W.
 
 ## Getting Started
 
-Please view the vignette ‘hurdat’:
-
 ``` r
 vignette("hurdat", package = "HURDAT")
 ```
