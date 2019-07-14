@@ -104,7 +104,7 @@ audit_hurdat <- function(df) {
 
   problems <- dplyr::filter(problems, .data$n > 1)
 
-  problems <- dplyr::arrange(problems, .data$n, .data$Key, .data$DateTime)
+  dplyr::arrange(problems, .data$n, .data$Key, .data$DateTime)
 
 }
 
@@ -162,9 +162,7 @@ get_hurdat <- function(basin = c("AL", "EP")) {
 
   txt <- txt[keep_lines]
 
-  hurdat <- parse_hurdat(txt)
-
-  return(hurdat)
+  parse_hurdat(txt)
 
 }
 
@@ -309,8 +307,6 @@ parse_hurdat <- function(x) {
     strptime(hurdat$DateTime, format = "%Y-%m-%d %H:%M:%S")
   )
 
-  hurdat <- dplyr::arrange(hurdat, .data$DateTime, .data$Key)
-
-  return(hurdat)
+  dplyr::arrange(hurdat, .data$DateTime, .data$Key)
 
 }
