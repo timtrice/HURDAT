@@ -21,7 +21,7 @@ present it in a cleaner format.
 
 The Atlantic basin dataset covers all cyclones that have developed in
 the Atlantic Ocean. The eastern Pacific datasets cover cyclones in the
-Pacifc from the United States/Mexico coastlines to -140°W where the
+Pacific from the United States/Mexico coastlines to -140°W where the
 cyclone entered what is referred to as the central Pacific basin. The
 central Pacific basin extends westward to -180°W.
 
