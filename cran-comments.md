@@ -20,6 +20,15 @@
 
 There are no ERRORs or WARNINGs or NOTEs.
 
+winbuilder and r_hub give a NOTE regarding the Author field. 
+
+> * checking CRAN incoming feasibility ... NOTE
+>   Maintainer: 'Tim Trice '
+
+This field has not changed from any previous submittal. This NOTE was not 
+raised on previous submittals. As I understand it, this is a reminder to 
+validate the maintainer field. Therefore, it is validated.
+
 ## HURDAT v0.2.0
 ================
 
@@ -39,15 +48,6 @@ There are no ERRORs or WARNINGs or NOTEs.
 ## R CMD check results
 
 There are no ERRORs or WARNINGs or NOTEs.
-
-winbuilder and r_hub give a NOTE regarding the Author field. 
-
-> * checking CRAN incoming feasibility ... NOTE
->   Maintainer: 'Tim Trice '
-
-This field has not changed from any previous submittal. This NOTE was not 
-raised on previous submittals. As I understand it, this is a reminder to 
-validate the maintainer field. Therefore, it is validated.
 
 ## HURDAT v0.2.0
 ================
