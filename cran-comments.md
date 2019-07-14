@@ -1,3 +1,25 @@
+## HURDAT v0.2.3
+================
+
+## Test environments
+
+### Local (Ubuntu 18.04)
+* R 3.6.1
+
+### Remote (Travis-CI Ubuntu 14.05)
+* R devel
+* R release
+* R oldrelease
+
+### Remote (Appveyor i386-w64-mingw32/i386 (32-bit))
+* R 3.5.3
+* R devel
+* R patched
+
+## R CMD check results
+
+There are no ERRORs or WARNINGs or NOTEs.
+
 ## HURDAT v0.2.0
 ================
 
@@ -17,6 +39,15 @@
 ## R CMD check results
 
 There are no ERRORs or WARNINGs or NOTEs.
+
+winbuilder and r_hub give a NOTE regarding the Author field. 
+
+> * checking CRAN incoming feasibility ... NOTE
+>   Maintainer: 'Tim Trice '
+
+This field has not changed from any previous submittal. This NOTE was not 
+raised on previous submittals. As I understand it, this is a reminder to 
+validate the maintainer field. Therefore, it is validated.
 
 ## HURDAT v0.2.0
 ================
