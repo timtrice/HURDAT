@@ -2,7 +2,7 @@
 % Please edit documentation in R/hurdat.R
 \name{get_hurdat}
 \alias{get_hurdat}
-\title{get_hurdat}
+\title{Get HURDAT and parse to dataframe}
 \usage{
 get_hurdat(basin = c("AL", "EP"))
 }
@@ -10,13 +10,13 @@ get_hurdat(basin = c("AL", "EP"))
 \item{basin}{AL or EP. Default is both.}
 }
 \description{
-Retrieve Raw HURDAT files for Atlantic (AL), northeast and
-central Pacific (EP) basins (northwestern hemisphere)
+Retrieve Raw HURDAT files for Atlantic (AL), northeast and central Pacific
+  (EP) basins (northwestern hemisphere)
 }
 \details{
 Raw text files \emph{should} be found at
-\url{http://www.nhc.noaa.gov/data/hurdat/} as of this writing. The codebooks
-are listed below.
+  \url{http://www.nhc.noaa.gov/data/hurdat/} as of this writing. The
+ codebooks are listed below.
 }
 \examples{
 \dontrun{

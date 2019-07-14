@@ -88,18 +88,43 @@ NULL
   invisible()
 }
 
-#' @title get_hurdat
-#' @description Retrieve Raw HURDAT files for Atlantic (AL), northeast and
-#' central Pacific (EP) basins (northwestern hemisphere)
+#' HURDAT audit
+#'
+#' Run an audit on the HURDAT dataset and identifies duplicate records of `Key`
+#'   and `DateTime`.
+#'
+#' @param df Dataframe, parsed HURDAT dataset
+#'
+#' @keywords internal
+audit_hurdat <- function(df) {
+
+  problems <- dplyr::group_by(df, .data$Key, .data$DateTime)
+
+  problems <- dplyr::count(problems)
+
+  problems <- dplyr::filter(problems, .data$n > 1)
+
+  problems <- dplyr::arrange(problems, .data$n, .data$Key, .data$DateTime)
+
+}
+
+#' Get HURDAT and parse to dataframe
+#'
+#' Retrieve Raw HURDAT files for Atlantic (AL), northeast and central Pacific
+#'   (EP) basins (northwestern hemisphere)
+#'
 #' @details Raw text files \emph{should} be found at
-#' \url{http://www.nhc.noaa.gov/data/hurdat/} as of this writing. The codebooks
-#' are listed below.
+#'   \url{http://www.nhc.noaa.gov/data/hurdat/} as of this writing. The
+#'  codebooks are listed below.
+#'
 #' @seealso Atlantic codebook:
 #'     \url{http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
+#'
 #' @seealso NE/NC Pacific codebook:
 #'     \url{http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
 #'
 #' @param basin AL or EP. Default is both.
+#'
 #' @examples
 #' \dontrun{
 #' # Get Atlantic storms
@@ -126,36 +151,41 @@ get_hurdat <- function(basin = c("AL", "EP")) {
     use.names = FALSE
   )
 
-  html <- purrr::map(.x = urls, .f = xml2::read_html)
+  txt <- purrr::map(urls, readr::read_lines)
 
-  txt <- purrr::map(.x = html, .f = rvest::html_nodes, xpath = "//pre")
+  txt <- purrr::flatten_chr(txt)
 
-  any_missing <- which(!lengths(txt))
+  keep_lines <- grep(
+    pattern = "^[[:alpha:]{2}[:digit:]{6}]|[[:digit:]]{8}",
+    x = txt
+  )
 
-  txt <- purrr::map(.x = txt, .f = rvest::html_text)
+  txt <- txt[keep_lines]
 
-  if (length(any_missing) > 0) {
+  hurdat <- parse_hurdat(txt)
 
-    txt[any_missing] <- purrr::map(
-      .x = html[any_missing],
-      .f = rvest::html_text
-    )
+  return(hurdat)
 
-  }
+}
 
-  txt <- purrr::map(txt, strsplit, split = "\n")
+#' Parse HURDAT
+#'
+#' Take a vector of lines with raw HURDAT information and convert to a
+#'   dataframe object.
+#'
+#' @param x A character vector.
+#'
+#' @keywords internal
+parse_hurdat <- function(x) {
 
-  txt <- as.vector(unlist(txt, use.names = FALSE))
+  hurdat <- as.data.frame(x, stringsAsFactors = FALSE)
 
-  hurdat <- as.data.frame(txt)
+  header_rows <- grep(pattern = "^[[:alpha:]]{2}[[:digit:]]{6}.+", x)
 
-  # Identify headers containing sotrm key, name, and line count
-  headers <- grep(pattern = "^[[:alpha:]]{2}[[:digit:]]{6}.+", hurdat$txt)
-
-  # Split headers into variables
+  # Split header_rows into variables
   hurdat <- tidyr::extract(
     data = hurdat,
-    col = "txt",
+    col = "x",
     into = c("Key", "Name", "Lines"),
     regex = paste0(
       "([:alpha:]{2}[:digit:]{6}),\\s+", # Key
@@ -169,10 +199,13 @@ get_hurdat <- function(basin = c("AL", "EP")) {
   # Fill headers down
   hurdat <- tidyr::fill(data = hurdat, .data$Key, .data$Name, .data$Lines)
 
+  # Remove original header rows
+  hurdat <- hurdat[-header_rows,]
+
   # Split storm details into variables
   hurdat <- tidyr::extract(
     data = hurdat,
-    col = "txt",
+    col = "x",
     into = c(
       "Year",
       "Month",
@@ -241,9 +274,6 @@ get_hurdat <- function(basin = c("AL", "EP")) {
     )
   )
 
-  # Remove original header rows
-  hurdat <- hurdat[-headers,]
-
   hurdat$DateTime <- paste(
     paste(hurdat$Year, hurdat$Month, hurdat$Date, sep = "-"),
     paste(hurdat$Hour, hurdat$Minute, "00", sep = ":"),
@@ -255,6 +285,16 @@ get_hurdat <- function(basin = c("AL", "EP")) {
     .data$Key, .data$Name, .data$DateTime, .data$Record:.data$Lat,
     .data$Lon, .data$Wind:.data$NW64
   )
+
+  # Run audit and throw warning if any issues.
+  if (nrow(audit_hurdat(hurdat)) > 0) {
+    rlang::warn(
+      message = paste0(
+        "Observations received are not equal to those expected.",
+        "Run `audit_hurdat()` for discrepancy table."
+      )
+    )
+  }
 
   # Make certain values NA
   # I do this before converting `DateTime` because if that field has already
@@ -272,4 +312,5 @@ get_hurdat <- function(basin = c("AL", "EP")) {
   hurdat <- dplyr::arrange(hurdat, .data$DateTime, .data$Key)
 
   return(hurdat)
+
 }

@@ -21,6 +21,7 @@ LazyData: TRUE
 Imports:
     dplyr, 
     purrr,
+    readr, 
     rlang, 
     rvest, 
     tidyr, 
