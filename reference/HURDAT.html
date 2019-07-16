@@ -16,13 +16,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -59,6 +61,7 @@ cyclones and present it in a cleaner format." />
   gtag('config', 'UA-1507390-28');
 </script>
 
+
   </head>
 
   <body>
@@ -75,7 +78,7 @@ cyclones and present it in a cleaner format." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">HURDAT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3.9000</span>
       </span>
     </div>
 
@@ -104,7 +107,7 @@ cyclones and present it in a cleaner format." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/timtrice/HURDAT">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -115,6 +118,7 @@ cyclones and present it in a cleaner format." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -137,7 +141,7 @@ cyclones and present it in a cleaner format.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The Atlantic basin dataset covers all cyclones that have developed in the
-Atlantic Ocean. The eastern Pacific datasets cover cyclones in the Pacifc
+Atlantic Ocean. The eastern Pacific datasets cover cyclones in the Pacific
 from the United States/Mexico coastlines to -140&amp;deg;W where the cyclone
 entered what is referred to as the central Pacific basin. The central
 Pacific basin extends westward to -180&amp;deg;W.</p>
@@ -145,12 +149,15 @@ Pacific basin extends westward to -180&amp;deg;W.</p>
     <h2 class="hasAnchor" id="named-cyclones"><a class="anchor" href="#named-cyclones"></a>Named Cyclones</h2>
 
     
-    <p>Cyclones were not named until 1950 and used names of the international
+
+
+<p>Cyclones were not named until 1950 and used names of the international
 phonetic alphabet. For example, Able, Baker, Charlie, etc.</p>
 <p>In 1953, the <a href='http://www.nhc.noaa.gov'>National Hurricane Center</a> began
 using female names and by 1954 the NHC would retire some names for storms of
 significance. Currently the
-<a href='http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html'>World Meteorological Organization</a>
+<a href='http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html'>World
+  Meteorological Organization</a>
 is responsible for maintaining the list of names, retiring names and
 assigning replacement names.</p>
 <p>In this dataset, cyclones not named are simply referred to as "UNNAMED". To
@@ -162,31 +169,48 @@ for the year, followed by the four-digit year.</p>
 <li><p>01 = First storm of the year (`YearNum`)</p></li>
 <li><p>1851 = Year of the storm (`Year`)</p></li>
 </ul>
+
     
     <h2 class="hasAnchor" id="meteorological-definitions"><a class="anchor" href="#meteorological-definitions"></a>Meteorological Definitions</h2>
 
     
-    <p>It is useful to understand definitions and classifications of tropical
+
+
+<p>It is useful to understand definitions and classifications of tropical
 cyclones.</p><ul>
-<li><p>Cyclone: a system of winds rotating inward to an area of low pressure. This system rotates counter-clockwise in the northern hemisphere and clockwise in the southern hemisphere.</p></li>
-<li><p>Tropical depression: a tropical cyclone with winds less than 35 mph (34 kts).</p></li>
-<li><p>Tropical storm: a tropical  with winds between 35 mph (34 kts) but less than 74mph (64 kts).</p></li>
-<li><p>Hurricane: a tropical cyclone with winds greater than 74 mph (64 kts).</p></li>
-<li><p>Extratropical Cyclone: a cyclone no longer containing tropical characteristics (warm-core center, tight pressure gradient near the center)</p></li>
-<li><p>Subtropical Cyclone: a cyclone containing a mix of tropical and non-tropical characteristics.</p></li>
+<li><p>Cyclone: a system of winds rotating inward to an area of low
+    pressure. This system rotates counter-clockwise in the northern
+    hemisphere and clockwise in the southern hemisphere.</p></li>
+<li><p>Tropical depression: a tropical cyclone with winds less than 35 mph
+    (34 kts).</p></li>
+<li><p>Tropical storm: a tropical  with winds between 35 mph (34 kts) but
+    less than 74mph (64 kts).</p></li>
+<li><p>Hurricane: a tropical cyclone with winds greater than 74 mph
+    (64 kts).</p></li>
+<li><p>Extratropical Cyclone: a cyclone no longer containing tropical
+    characteristics (warm-core center, tight pressure gradient near the
+   center)</p></li>
+<li><p>Subtropical Cyclone: a cyclone containing a mix of tropical and
+    non-tropical characteristics.</p></li>
 <li><p>Tropical cyclone: a warm-core surface low pressure system</p></li>
-<li><p>Tropical Wave: An open area of low pressure (trough) containing tropical characteristics</p></li>
-<li><p>Disturbance: An area of disturbed weather; a large disorganized area of thunderstorms.</p></li>
+<li><p>Tropical Wave: An open area of low pressure (trough) containing
+    tropical characteristics</p></li>
+<li><p>Disturbance: An area of disturbed weather; a large disorganized area
+    of thunderstorms.</p></li>
 </ul>
+
     
     <h2 class="hasAnchor" id="error-reporting"><a class="anchor" href="#error-reporting"></a>Error Reporting</h2>
 
     
-    <p>Please submit any errors, discrepancies or issues through the
+
+
+<p>Please submit any errors, discrepancies or issues through the
 <a href='https://github.com/timtrice/HURDAT/issues'>timtrice/HURDAT</a> repository.</p>
 <p>Errors in the raw data may also be reported to Chris Landsea or the National
 Hurricane Center Best Track Change Committee
-<a href='http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html'>as explained on the HRD website</a>.</p>
+<a href='http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html'>as
+  explained on the HRD website</a>.</p>
     
 
   </div>
@@ -206,19 +230,23 @@ Hurricane Center Best Track Change Committee
   </div>
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by <a href='https://timtrice.net'>Tim Trice</a>, Chris Landsea.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
