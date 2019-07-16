@@ -11,7 +11,6 @@ col_names <- c(
 test_that(
   desc = "Test default options",
   code = {
-
     hurdat.url.al <- getOption("hurdat.url.al")
 
     hurdat.url.ep <- getOption("hurdat.url.ep")
@@ -25,7 +24,6 @@ test_that(
       hurdat.url.ep,
       "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
     )
-
   }
 )
 
@@ -33,7 +31,6 @@ test_that(
 test_that(
   desc = "Test AL",
   code = {
-
     al <- get_hurdat("AL")
 
     # Arrange dataset
@@ -70,7 +67,6 @@ test_that(
 
     # Check distinction
     expect_identical(al, dplyr::distinct(al))
-
   }
 )
 
@@ -78,7 +74,6 @@ test_that(
 test_that(
   desc = "Test EP HURDAT",
   code = {
-
     ep <- get_hurdat("EP")
 
     # Arrange dataset
@@ -115,7 +110,6 @@ test_that(
 
     # Check distinction
     expect_identical(ep, dplyr::distinct(ep))
-
   }
 )
 
@@ -137,7 +131,6 @@ test_that(
 test_that(
   desc = "tests_no_errors",
   code = {
-
     no_errors <- system.file(
       "extdata",
       "tests_no_errors.txt",
@@ -167,7 +160,6 @@ test_that(
 test_that(
   desc = "tests_duplicate_data",
   code = {
-
     duplicate_data <- system.file(
       "extdata",
       "tests_duplicate_data.txt",
@@ -189,6 +181,5 @@ test_that(
     discrepancies <- audit_hurdat(df)
 
     expect_identical(dim(discrepancies), c(33L, 3L))
-
   }
 )

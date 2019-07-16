@@ -97,7 +97,6 @@ NULL
 #'
 #' @keywords internal
 audit_hurdat <- function(df) {
-
   problems <- dplyr::group_by(df, .data$Key, .data$DateTime)
 
   problems <- dplyr::count(problems)
@@ -105,7 +104,6 @@ audit_hurdat <- function(df) {
   problems <- dplyr::filter(problems, .data$n > 1)
 
   dplyr::arrange(problems, .data$n, .data$Key, .data$DateTime)
-
 }
 
 #' Get HURDAT and parse to dataframe
@@ -138,7 +136,6 @@ audit_hurdat <- function(df) {
 #' }
 #' @export
 get_hurdat <- function(basin = c("AL", "EP")) {
-
   basin <- toupper(basin)
 
   if (!all(basin %in% c("AL", "EP"))) {
@@ -163,7 +160,6 @@ get_hurdat <- function(basin = c("AL", "EP")) {
   txt <- txt[keep_lines]
 
   parse_hurdat(txt)
-
 }
 
 #' Parse HURDAT
@@ -175,7 +171,6 @@ get_hurdat <- function(basin = c("AL", "EP")) {
 #'
 #' @keywords internal
 parse_hurdat <- function(x) {
-
   hurdat <- as.data.frame(x, stringsAsFactors = FALSE)
 
   header_rows <- grep(pattern = "^[[:alpha:]]{2}[[:digit:]]{6}.+", x)
@@ -187,8 +182,8 @@ parse_hurdat <- function(x) {
     into = c("Key", "Name", "Lines"),
     regex = paste0(
       "([:alpha:]{2}[:digit:]{6}),\\s+", # Key
-      "([[:upper:][:digit:]-]+)\\s*,\\s+",      # Name
-      "([:digit:]+),"          # Number of lines that follow
+      "([[:upper:][:digit:]-]+)\\s*,\\s+", # Name
+      "([:digit:]+)," # Number of lines that follow
     ),
     remove = FALSE,
     convert = TRUE
@@ -198,7 +193,7 @@ parse_hurdat <- function(x) {
   hurdat <- tidyr::fill(data = hurdat, .data$Key, .data$Name, .data$Lines)
 
   # Remove original header rows
-  hurdat <- hurdat[-header_rows,]
+  hurdat <- hurdat[-header_rows, ]
 
   # Split storm details into variables
   hurdat <- tidyr::extract(
@@ -308,5 +303,4 @@ parse_hurdat <- function(x) {
   )
 
   dplyr::arrange(hurdat, .data$DateTime, .data$Key)
-
 }
