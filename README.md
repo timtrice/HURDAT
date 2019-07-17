@@ -11,7 +11,7 @@ Status](https://img.shields.io/appveyor/ci/timtrice/HURDAT/develop.svg)](https:/
 [![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/master/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
 [![Docker Cloud Build
 Status](https://img.shields.io/docker/cloud/build/timtrice/hurdat.svg?style=popout)](https://cloud.docker.com/repository/docker/timtrice/hurdat)
-[![rstudio.cloud](https://img.shields.io/badge/launch-rstudio.cloud-yellowgreen.svg)](https://rstudio.cloud/project/413591)
+[![rstudio.cloud](https://img.shields.io/badge/launch-rstudio.cloud-yellowgreen.svg)](https://rstudio.cloud/project/415701)
 
 # HURDAT
 
