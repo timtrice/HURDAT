@@ -293,10 +293,19 @@ parse_hurdat <- function(x) {
   # I do this before converting `DateTime` because if that field has already
   # been converted then this cleaning will generate an error,
   # >  character string is not in a standard unambiguous format
-  hurdat[hurdat == ""] <- NA
-  hurdat[hurdat == "0"] <- NA
-  hurdat[hurdat == -99] <- NA_integer_
-  hurdat[hurdat == -999] <- NA_integer_
+  hurdat <-
+    dplyr::mutate_at(
+      .tbl = hurdat,
+      .vars = dplyr::vars(
+        .data$Key:.data$Status,
+        .data$Wind:.data$NW64
+      ),
+      .funs = ~replace(
+        x = .,
+        list = . %in% c("", "0", -99, -999),
+        values = NA
+      )
+    )
 
   hurdat$DateTime <- as.POSIXct(
     strptime(hurdat$DateTime, format = "%Y-%m-%d %H:%M:%S")
