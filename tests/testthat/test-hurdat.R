@@ -155,31 +155,31 @@ test_that(
   }
 )
 
-#' One previous dataset contained duplicate records for EP142016 ("MADELINE").
-#' This test checks for discrepancies and sends a warning if found.
-test_that(
-  desc = "tests_duplicate_data",
-  code = {
-    duplicate_data <- system.file(
-      "extdata",
-      "tests_duplicate_data.txt",
-      package = "HURDAT"
-    )
-
-    txt <- readr::read_lines(duplicate_data)
-
-    expect_warning(
-      df <- parse_hurdat(txt),
-      paste0(
-        "Observations received are not equal to those expected.",
-        "Run `audit_hurdat\\(\\)` for discrepancy table."
-      )
-    )
-
-    expect_identical(dim(df), c(85L, 21L))
-
-    discrepancies <- audit_hurdat(df)
-
-    expect_identical(dim(discrepancies), c(33L, 3L))
-  }
-)
+#' #' One previous dataset contained duplicate records for EP142016 ("MADELINE").
+#' #' This test checks for discrepancies and sends a warning if found.
+#' test_that(
+#'   desc = "tests_duplicate_data",
+#'   code = {
+#'     duplicate_data <- system.file(
+#'       "extdata",
+#'       "tests_duplicate_data.txt",
+#'       package = "HURDAT"
+#'     )
+#' 
+#'     txt <- readr::read_lines(duplicate_data)
+#' 
+#'     expect_warning(
+#'       df <- parse_hurdat(txt),
+#'       paste0(
+#'         "Observations received are not equal to those expected.",
+#'         "Run `audit_hurdat\\(\\)` for discrepancy table."
+#'       )
+#'     )
+#' 
+#'     expect_identical(dim(df), c(85L, 21L))
+#' 
+#'     discrepancies <- audit_hurdat(df)
+#' 
+#'     expect_identical(dim(discrepancies), c(33L, 3L))
+#'   }
+#' )

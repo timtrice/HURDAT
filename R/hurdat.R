@@ -278,6 +278,8 @@ parse_hurdat <- function(x) {
     .data$Key, .data$Name, .data$DateTime, .data$Record:.data$Lat,
     .data$Lon, .data$Wind:.data$NW64
   )
+  
+  hurdat <- unique(hurdat)
 
   # Run audit and throw warning if any issues.
   if (nrow(audit_hurdat(hurdat)) > 0) {
