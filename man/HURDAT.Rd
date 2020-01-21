@@ -26,7 +26,7 @@ phonetic alphabet. For example, Able, Baker, Charlie, etc.
 In 1953, the \href{http://www.nhc.noaa.gov}{National Hurricane Center} began
 using female names and by 1954 the NHC would retire some names for storms of
 significance. Currently the
-\href{http://www.wmo.int/pages/prog/www/tcp/Storm-naming.html}{World
+\href{https://public.wmo.int/en/About-us/FAQs/faqs-tropical-cyclones/tropical-cyclone-naming}{World
   Meteorological Organization}
 is responsible for maintaining the list of names, retiring names and
 assigning replacement names.
