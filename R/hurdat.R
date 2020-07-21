@@ -181,9 +181,9 @@ parse_hurdat <- function(x) {
     col = "x",
     into = c("Key", "Name", "Lines"),
     regex = paste0(
-      "([:alpha:]{2}[:digit:]{6}),\\s+", # Key
+      "([[:alpha:]]{2}[[:digit:]]{6}),\\s+", # Key
       "([[:upper:][:digit:]-]+)\\s*,\\s+", # Name
-      "([:digit:]+)," # Number of lines that follow
+      "([[:digit:]]+)," # Number of lines that follow
     ),
     remove = FALSE,
     convert = TRUE
@@ -227,17 +227,17 @@ parse_hurdat <- function(x) {
       "NW64"
     ),
     regex = paste0(
-      "^([:digit:]{4})", # Year
-      "([:digit:]{2})", # Month
-      "([:digit:]{2}),\\s+", # Date
-      "([:digit:]{2})", # Hour
-      "([:digit:]{2}),\\s+", # Minute
-      "([:alpha:]*),\\s+", # Record
-      "([:alpha:]{2}),\\s+", # Status
-      "([:digit:]{1,2}\\.[:digit:]{1})", # Latitude
-      "([:alpha:]{1}),\\s+", # Hemisphere
-      "([:digit:]{1,3}\\.[:digit:]{1})", # Longitude
-      "([:alpha:]{1}),\\s+", # Hemisphere
+      "^([[:digit:]]{4})", # Year
+      "([[:digit:]]{2})", # Month
+      "([[:digit:]]{2}),\\s+", # Date
+      "([[:digit:]]{2})", # Hour
+      "([[:digit:]]{2}),\\s+", # Minute
+      "([[:alpha:]]*),\\s+", # Record
+      "([[:alpha:]]{2}),\\s+", # Status
+      "([[:digit:]]{1,2}\\.[[:digit:]]{1})", # Latitude
+      "([[:alpha:]]{1}),\\s+", # Hemisphere
+      "([[:digit:]]{1,3}\\.[[:digit:]]{1})", # Longitude
+      "([[:alpha:]]{1}),\\s+", # Hemisphere
       "([[:digit:]-]+),\\s+", # Wind
       "([[:digit:]-]+),\\s+", #
       "([[:digit:]-]+),\\s+", #
