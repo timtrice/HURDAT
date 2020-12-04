@@ -4,7 +4,8 @@
 \name{AL}
 \alias{AL}
 \title{Atlantic HURDAT}
-\format{A dataframe with 21 variables.
+\format{
+A dataframe with 21 variables.
 \describe{
      \item{\code{Key}}{Unique key identifying the tropical cyclone.
          Formatted like AABBCCCC where AA is Basin, BB is YearNum and CC is
@@ -75,7 +76,8 @@
          southwestern quadrant.}
      \item{\code{NW64}}{Radius of winds > 64 kts in the
          northwestern quadrant.}
-}}
+}
+}
 \usage{
 AL
 }

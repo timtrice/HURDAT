@@ -3,7 +3,6 @@
 \docType{package}
 \name{HURDAT}
 \alias{HURDAT}
-\alias{HURDAT-package}
 \title{HURDAT}
 \description{
 This R package currently aims to reorganize the NOAA HURDAT2
