@@ -7,7 +7,7 @@ Authors@R: c(
     person("Chris", "Landsea", email = "Chris.Landsea@noaa.gov", 
         role = c("aut", "dtc")))
 Depends:
-    R (>= 3.5)
+    R (>= 3.6)
 Description: Scraped dataset of the Hurricane Research Division's Hurricane 
     Re-Analysis Project known as HURDAT. Storm details are available for most 
     known hurricanes and tropical storms for the Atlantic and northeastern 
