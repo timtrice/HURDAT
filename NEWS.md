@@ -1,3 +1,22 @@
+# HURDAT v0.2.3.2 (2020-12-04)
+==========================
+
+## NEW FEATURES
+
+* NA
+
+## MINOR IMPROVEMENTS
+
+* Updated storm datasets for 2019
+
+## BUG FIXES
+
+* Ensure all regexp classes inside of [] (#5)
+
+## DEPRECATED AND DEFUNCT
+
+* NA
+
 # HURDAT v0.2.3 (2019-07-14)
 ==========================
 

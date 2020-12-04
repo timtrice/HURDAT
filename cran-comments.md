@@ -1,3 +1,28 @@
+## HURDAT v0.2.3.2
+================
+
+## Test environments
+
+* local Ubunto 20 install, R 3.6.3
+* win-builder.r-project.org R 4.0.3
+* win-builder.r-project.org R development
+* win-builder.r-project.org R 3.6.3
+
+## R CMD check results
+
+There are no ERRORs or WARNINGs or NOTEs.
+
+winbuilder give a NOTE regarding the Author field. 
+
+> * checking CRAN incoming feasibility ... NOTE
+>   Maintainer: 'Tim Trice '
+> New submission
+> 
+> Package was archived on CRAN
+
+Package errors were not corrected in a timely fashion and removed from CRAN. 
+This release resolves those errors.
+
 ## HURDAT v0.2.3
 ================
 
