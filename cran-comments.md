@@ -23,6 +23,8 @@ winbuilder give a NOTE regarding the Author field.
 Package errors were not corrected in a timely fashion and removed from CRAN. 
 This release resolves those errors.
 
+Invalid URL's corrected.
+
 ## HURDAT v0.2.3
 ================
 

@@ -10,7 +10,7 @@ Status](https://img.shields.io/travis/timtrice/HURDAT/develop.svg)](https://trav
 Status](https://img.shields.io/appveyor/ci/timtrice/HURDAT/develop.svg)](https://ci.appveyor.com/project/timtrice/HURDAT)
 [![codecov](https://codecov.io/gh/timtrice/HURDAT/branch/master/graph/badge.svg)](https://codecov.io/gh/timtrice/HURDAT)
 [![Docker Cloud Build
-Status](https://img.shields.io/docker/cloud/build/timtrice/hurdat.svg?style=popout)](https://cloud.docker.com/repository/docker/timtrice/hurdat)
+Status](https://img.shields.io/docker/cloud/build/timtrice/hurdat.svg?style=popout)](https://hub.docker.com/repository/docker/timtrice/hurdat)
 [![rstudio.cloud](https://img.shields.io/badge/launch-rstudio.cloud-yellowgreen.svg)](https://rstudio.cloud/project/415701)
 
 # HURDAT
@@ -53,7 +53,7 @@ requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions
+We use [SemVer](https://semver.org/) for versioning. For the versions
 available, see the [tags on this
 repository](https://github.com/timtrice/HURDAT/tags).
 

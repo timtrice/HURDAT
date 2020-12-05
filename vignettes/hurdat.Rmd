@@ -15,7 +15,7 @@ library(HURDAT)
 
 ## Introduction
 
-HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season's activity. These text files *will not* contain data on current tropical systems. For that I would recommend my [Hurricanes](https://github.com/timtrice/Hurricanes) package (not yet available in CRAN). 
+HURDAT is a re-analysis project of all tropical cyclones by the National Hurricane Center (NHC) Hurricane Research Division(NRD). Known as HURDAT2, the text files are typically updated in late winter, early spring to include the previous season's activity. These text files *will not* contain data on current tropical systems. For that I would recommend my [rrricanes](https://github.com/ropensci/rrricanes) package (not yet available in CRAN). 
 
 As of this vignette data up to and including 2016 has been added.
 
@@ -41,7 +41,7 @@ AL <- get_hurdat(basin = "AL")
 
 Most of the early storms will have missing data.
 
-The [Atlantic HURDAT codebook](http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf) contains the definitions of the various fields. A codebook also exists for the [northeast and central Pacific](http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-nencpac.pdf).
+The [Atlantic HURDAT codebook](https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf) contains the definitions of the various fields. A codebook also exists for the [northeast and central Pacific](https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-nencpac.pdf).
 
 There are significantly more storms for the Atlantic than in the eastern Pacific. There are only a few storms for the central Pacific. 
 

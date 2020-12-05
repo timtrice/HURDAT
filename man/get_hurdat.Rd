@@ -15,7 +15,7 @@ Retrieve Raw HURDAT files for Atlantic (AL), northeast and central Pacific
 }
 \details{
 Raw text files \emph{should} be found at
-  \url{http://www.nhc.noaa.gov/data/hurdat/} as of this writing. The
+  \url{https://www.nhc.noaa.gov/data/hurdat/} as of this writing. The
  codebooks are listed below.
 }
 \examples{
@@ -32,8 +32,8 @@ df <- get_hurdat()
 }
 \seealso{
 Atlantic codebook:
-    \url{http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
+    \url{https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
 
 NE/NC Pacific codebook:
-    \url{http://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
+    \url{https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atlantic.pdf}
 }

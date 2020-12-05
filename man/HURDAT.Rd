@@ -22,10 +22,10 @@ Pacific basin extends westward to -180&deg;W.
 Cyclones were not named until 1950 and used names of the international
 phonetic alphabet. For example, Able, Baker, Charlie, etc.
 
-In 1953, the \href{http://www.nhc.noaa.gov}{National Hurricane Center} began
+In 1953, the \href{https://www.nhc.noaa.gov}{National Hurricane Center} began
 using female names and by 1954 the NHC would retire some names for storms of
 significance. Currently the
-\href{https://public.wmo.int/en/About-us/FAQs/faqs-tropical-cyclones/tropical-cyclone-naming}{World
+\href{https://public.wmo.int/en/our-mandate/focus-areas/natural-hazards-and-disaster-risk-reduction/tropical-cyclones/Naming}{World
   Meteorological Organization}
 is responsible for maintaining the list of names, retiring names and
 assigning replacement names.
@@ -79,7 +79,7 @@ Please submit any errors, discrepancies or issues through the
 
 Errors in the raw data may also be reported to Chris Landsea or the National
 Hurricane Center Best Track Change Committee
-\href{http://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as
+\href{https://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as
   explained on the HRD website}.
 }
 
