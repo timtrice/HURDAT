@@ -29,7 +29,7 @@ str(EP)
 str(AL)
 ```
 
-## Usage
+## Use
 
 The datasets are extracted from online with the function `get_hurdat`. The `basin` parameter takes either "AL" for Atlantic or "EP" for northeastern and central Pacific.
 

@@ -42,7 +42,7 @@ install.packages("HURDAT")
 
 ## Built With
 
-* [R 3.4.0](https://www.r-project.org/) - The R Project for Statistical Computing
+* [R 4.4.1](https://www.r-project.org/) - The R Project for Statistical Computing
 
 ## Contributing
 

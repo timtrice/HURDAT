@@ -1,7 +1,6 @@
 Package: HURDAT
-Type: Package
 Title: Hurricane Re-Analysis Project
-Version: 0.2.3.2
+Version: 0.2.3.3
 Authors@R: c(
     person("Tim", "Trice", email = "tim.trice@gmail.com", role = c("aut", "cre")), 
     person("Chris", "Landsea", email = "Chris.Landsea@noaa.gov", 
@@ -23,9 +22,7 @@ Imports:
     purrr,
     readr, 
     rlang, 
-    rvest, 
-    tidyr, 
-    xml2
+    tidyr
 Suggests:
     covr, 
     devtools, 
@@ -33,5 +30,5 @@ Suggests:
     testthat,
     rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 Encoding: UTF-8

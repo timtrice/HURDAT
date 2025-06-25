@@ -71,27 +71,10 @@
 #' \href{https://www.aoml.noaa.gov/hrd/hurdat/submit_re-analysis.html}{as
 #'   explained on the HRD website}.
 #'
-#' @docType package
-#' @name HURDAT
-NULL
-
 #' @importFrom rlang .data
-
-.onLoad <- function(libname, pkgname) {
-  op <- options()
-  op.hurdat <- list(
-    hurdat.url.al = "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html",
-    hurdat.url.ep = "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
-  )
-  toset <- !(names(op.hurdat) %in% names(op))
-  if (any(toset)) options(op.hurdat[toset])
-  invisible()
-}
-
-#' HURDAT audit
+#' @name HURDAT
 #'
-#' Run an audit on the HURDAT dataset and identifies duplicate records of `Key`
-#'   and `DateTime`.
+#' @details Run an audit on the HURDAT dataset and identifies duplicate records of `Key` and `DateTime`.
 #'
 #' @param df Dataframe, parsed HURDAT dataset
 #'
@@ -190,7 +173,7 @@ parse_hurdat <- function(x) {
   )
 
   # Fill headers down
-  hurdat <- tidyr::fill(data = hurdat, .data$Key, .data$Name, .data$Lines)
+  hurdat <- tidyr::fill(data = hurdat, Key, Name, Lines)
 
   # Remove original header rows
   hurdat <- hurdat[-header_rows, ]
@@ -260,10 +243,10 @@ parse_hurdat <- function(x) {
   hurdat <- dplyr::mutate(
     .data = hurdat,
     Lat = dplyr::if_else(
-      .data$LatHemi == "N", .data$Lat * 1, .data$Lat * -1
+      LatHemi == "N", Lat * 1, Lat * -1
     ),
     Lon = dplyr::if_else(
-      .data$LonHemi == "E", .data$Lon * 1, .data$Lon * -1
+      LonHemi == "E", Lon * 1, Lon * -1
     )
   )
 
@@ -275,8 +258,8 @@ parse_hurdat <- function(x) {
 
   hurdat <- dplyr::select(
     .data = hurdat,
-    .data$Key, .data$Name, .data$DateTime, .data$Record:.data$Lat,
-    .data$Lon, .data$Wind:.data$NW64
+    Key, Name, DateTime, Record:Lat,
+    Lon, Wind:NW64
   )
 
   hurdat <- unique(hurdat)
@@ -299,8 +282,8 @@ parse_hurdat <- function(x) {
     dplyr::mutate_at(
       .tbl = hurdat,
       .vars = dplyr::vars(
-        .data$Key:.data$Status,
-        .data$Wind:.data$NW64
+        Key:Status,
+        Wind:NW64
       ),
       .funs = ~replace(
         x = .,

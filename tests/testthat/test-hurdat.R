@@ -17,12 +17,12 @@ test_that(
 
     expect_identical(
       hurdat.url.al,
-      "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html"
+      "https://www.aoml.noaa.gov/hrd/hurdat/hurdat2.html"
     )
 
     expect_identical(
       hurdat.url.ep,
-      "http://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
+      "https://www.aoml.noaa.gov/hrd/hurdat/hurdat2-nepac.html"
     )
   }
 )
@@ -34,7 +34,7 @@ test_that(
     al <- get_hurdat("AL")
 
     # Arrange dataset
-    al <- dplyr::arrange(al, .data$DateTime, .data$Key)
+    al <- dplyr::arrange(al, DateTime, Key)
 
     # dimensions
     expect_identical(ncol(al), 21L)
@@ -77,7 +77,7 @@ test_that(
     ep <- get_hurdat("EP")
 
     # Arrange dataset
-    ep <- dplyr::arrange(ep, .data$DateTime, .data$Key)
+    ep <- dplyr::arrange(ep, DateTime, Key)
 
     # dimensions
     expect_identical(ncol(ep), 21L)
